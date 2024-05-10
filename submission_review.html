@@ -1,11 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Submission Review</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .download-btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .download-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Submissions</h1>
+    <div class="container">
+        <h1>Submissions</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Organization Name</th>
+                    <th>Contact</th>
+                    <th>Address</th>
+                    <th>Type</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Organization A</td>
+                    <td>123-456-7890</td>
+                    <td>123 Main St</td>
+                    <td>Type A</td>
+                    <td><a href="" class="download-btn" onclick="downloadSubmission('Organization A', '123-456-7890', '123 Main St', 'Type A')">Download</a></td>
+                </tr>
+                <tr>
+                    <td>Organization B</td>
+                    <td>456-789-0123</td>
+                    <td>456 Elm St</td>
+                    <td>Type B</td>
+                    <td><a href="#" class="download-btn" onclick="downloadSubmission('Organization B', '456-789-0123', '456 Elm St', 'Type B')">Download</a></td>
+                </tr>
+                <!-- Add more rows for each submission -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function downloadSubmission(orgName, contact, address, type) {
+            // Construct the text content for the file
+            const fileContent = `Organization Name: ${orgName}\nContact: ${contact}\nAddress: ${address}\nType: ${type}`;
+
+            // Create a Blob containing the file content
+            const blob = new Blob([fileContent], { type: 'text/plain' });
+
+            // Create a temporary anchor element
+            const a = document.createElement('a');
+            a.download = `${orgName}_details.txt`; // Set the file name
+            a.href = window.URL.createObjectURL(blob);
+
+            // Trigger a click event on the anchor element to initiate download
+            a.click();
+
+            // Remove the temporary anchor element
+            window.URL.revokeObjectURL(a.href);
+        }
+    </script>
 </body>
+
 </html>
