@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submission Review</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        li:hover {
+            background-color: #e0e0e0;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-btn {
+            padding: 10px 20px;
+            background-color: #3328a7;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background-color: #3a2ebc;
+        }
+
+        .accept-btn {
+            background-color: #28a745;
+            color: #fff;
+            margin-left: 10px;
+        }
+
+        .accept-btn:hover {
+            background-color: #218838;
+        }
+
+        .reject-btn {
+            background-color: #dc3545;
+            color: #fff;
+            margin-left: 10px;
+        }
+
+        .reject-btn:hover {
+            background-color: #c82333;
+        }
+
+        #organization-details {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Submissions</h1>
+        <ul id="organization-list">
+            <li onclick="viewOrganizationDetails(0)">Organization 1</li>
+            <li onclick="viewOrganizationDetails(1)">Organization 2</li>
+            <li onclick="viewOrganizationDetails(2)">Organization 3</li>
+        </ul>
+        <div id="organization-details">
+            <h2>Organization Details</h2>
+            <p><strong>First Name:</strong> <span id="org-first-name"></span></p>
+            <p><strong>Last Name:</strong> <span id="org-last-name"></span></p>
+            <p><strong>Gender:</strong> <span id="org-gender"></span></p>
+            <p><strong>Email:</strong> <span id="org-email"></span></p>
+            <p><strong>Contact Number:</strong> <span id="org-contact"></span></p>
+            <p><strong>Organization Name:</strong> <span id="org-name"></span></p>
+            <p><strong>Organization Type:</strong> <span id="org-type"></span></p>
+            <p><strong>Organization Address:</strong> <span id="org-address"></span></p>
+            <p><strong>Area:</strong> <span id="org-area"></span></p>
+            <p><strong>Governorate:</strong> <span id="org-governorate"></span></p>
+            <button class="download-btn" onclick="downloadOrganizationDetails()">Download Details</button>
+            <button class="accept-btn btn" onclick="acceptOrganization()">Accept</button>
+            <button class="reject-btn btn" onclick="rejectOrganization()">Reject</button>
+        </div>
+    </div>
+
+    <script>
+        // Dummy data for organizations
+        const organizations = [
+            {
+                firstName: "John",
+                lastName: "Doe",
+                gender: "Male",
+                email: "john@example.com",
+                contact: "123-456-7890",
+                name: "ABC Organization",
+                type: "Type A",
+                address: "123 Main St",
+                area: "Downtown",
+                governorate: "New York"
+            },
+            {
+                firstName: "Jane",
+                lastName: "Smith",
+                gender: "Female",
+                email: "jane@example.com",
+                contact: "456-789-0123",
+                name: "XYZ Organization",
+                type: "Type B",
+                address: "456 Elm St",
+                area: "Uptown",
+                governorate: "California"
+            },
+            {
+                firstName: "Alice",
+                lastName: "Johnson",
+                gender: "Female",
+                email: "alice@example.com",
+                contact: "789-012-3456",
+                name: "PQR Organization",
+                type: "Type C",
+                address: "789 Oak St",
+                area: "Midtown",
+                governorate: "Texas"
+            }
+        ];
+
+        let currentOrganizationIndex = null;
+
+        function viewOrganizationDetails(index) {
+            currentOrganizationIndex = index;
+            const org = organizations[index];
+            document.getElementById("org-first-name").textContent = org.firstName;
+            document.getElementById("org-last-name").textContent = org.lastName;
+            document.getElementById("org-gender").textContent = org.gender;
+            document.getElementById("org-email").textContent = org.email;
+            document.getElementById("org-contact").textContent = org.contact;
+            document.getElementById("org-name").textContent = org.name;
+            document.getElementById("org-type").textContent = org.type;
+            document.getElementById("org-address").textContent = org.address;
+            document.getElementById("org-area").textContent = org.area;
+            document.getElementById("org-governorate").textContent = org.governorate;
+            document.getElementById("organization-details").style.display = "block";
+        }
+
+        function acceptOrganization() {
+            if (currentOrganizationIndex !== null) {
+                organizations.splice(currentOrganizationIndex, 1);
+                resetOrganizationDetails();
+                updateOrganizationList();
+            }
+        }
+
+        function rejectOrganization() {
+            if (currentOrganizationIndex !== null) {
+                organizations.splice(currentOrganizationIndex, 1);
+                resetOrganizationDetails();
+                updateOrganizationList();   
+            }
+        }
+
+        function resetOrganizationDetails() {
+            document.getElementById("organization-details").style.display = "none";
+            currentOrganizationIndex = null;
+            if(organizations.length > 0){
+            viewOrganizationDetails(0); // Reset to the first organization after accepting/rejecting
+            }
+        }
+
+        function updateOrganizationList() {
+            const list = document.getElementById("organization-list");
+            list.innerHTML = "";
+            organizations.forEach((org, index) => {
+                const listItem = document.createElement("li");
+                listItem.textContent = org.name;
+                listItem.onclick = () => viewOrganizationDetails(index);
+                list.appendChild(listItem);
+            });
+        }
+
+        function downloadOrganizationDetails() {
+            const org = organizations.find(org => org.name === document.getElementById("org-name").textContent);
+            const details = `
+                First Name: ${org.firstName}
+                Last Name: ${org.lastName}
+                Gender: ${org.gender}
+                Email: ${org.email}
+                Contact Number: ${org.contact}
+                Organization Name: ${org.name}
+                Organization Type: ${org.type}
+                Organization Address: ${org.address}
+                Area: ${org.area}
+                Governorate: ${org.governorate}
+            `;
+
+            const blob = new Blob([details], { type: "text/plain" });
+            const url = URL.createObjectURL(blob);
+
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "organization_details.txt";
+            document.body.appendChild(a);
+            a.click();
+
+            URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+        }
+
+        updateOrganizationList();
+    </script>
+</body>
+
+</html>

@@ -110,13 +110,13 @@
         <input type="text" id="filter-input" class="filter-input" placeholder="Enter filter criteria">
         <button class="filter-btn" onclick="filterOrganizations()">Filter</button>
         <ul id="registered-list" style="display: block;">
-            <li onclick="viewOrganizationDetails('Registered Org 1', 'Type A', '123 Main St', '123-456-7890')">Registered Org 1 - Type A</li>
-            <li onclick="viewOrganizationDetails('Registered Org 2', 'Type B', '456 Elm St', '456-789-0123')">Registered Org 2 - Type B</li>
-            <li onclick="viewOrganizationDetails('Registered Org 3', 'Type A', '789 Oak St', '789-012-3456')">Registered Org 3 - Type A</li>
+            <li onclick="viewOrganizationDetails('Registered Org 1', 'Type A', '123 Main St', '123-456-7890', 'John', 'Doe', 'Male', 'john@example.com', 'Area A', 'Governorate A')">Registered Org 1 - Type A</li>
+            <li onclick="viewOrganizationDetails('Registered Org 2', 'Type B', '456 Elm St', '456-789-0123', 'Jane', 'Smith', 'Female', 'jane@example.com', 'Area B', 'Governorate B')">Registered Org 2 - Type B</li>
+            <li onclick="viewOrganizationDetails('Registered Org 3', 'Type A', '789 Oak St', '789-012-3456', 'Jack', 'Johnson', 'Male', 'jack@example.com', 'Area C', 'Governorate C')">Registered Org 3 - Type A</li>
         </ul>
         <ul id="requesting-list" style="display: none;">
-            <li onclick="viewOrganizationDetails('Requesting Org 1', 'Type C', '012 Pine St', '012-345-6789')">Requesting Org 1 - Type C</li>
-            <li onclick="viewOrganizationDetails('Requesting Org 2', 'Type B', '345 Maple St', '345-678-9012')">Requesting Org 2 - Type B</li>
+            <li onclick="viewOrganizationDetails('Requesting Org 1', 'Type C', '012 Pine St', '012-345-6789', 'Alice', 'Adams', 'Female', 'alice@example.com', 'Area D', 'Governorate D')">Requesting Org 1 - Type C</li>
+            <li onclick="viewOrganizationDetails('Requesting Org 2', 'Type B', '345 Maple St', '345-678-9012', 'Bob', 'Brown', 'Male', 'bob@example.com', 'Area E', 'Governorate E')">Requesting Org 2 - Type B</li>
         </ul>
         <div id="organization-details">
             <h2>Organization Details</h2>
@@ -124,6 +124,12 @@
             <p><strong>Type:</strong> <span id="org-type"></span></p>
             <p><strong>Address:</strong> <span id="org-address"></span></p>
             <p><strong>Contact:</strong> <span id="org-contact"></span></p>
+            <p><strong>First Name:</strong> <span id="org-firstname"></span></p>
+            <p><strong>Last Name:</strong> <span id="org-lastname"></span></p>
+            <p><strong>Gender:</strong> <span id="org-gender"></span></p>
+            <p><strong>Email:</strong> <span id="org-email"></span></p>
+            <p><strong>Area:</strong> <span id="org-area"></span></p>
+            <p><strong>Governorate:</strong> <span id="org-governorate"></span></p>
         </div>
     </div>
 
@@ -184,11 +190,17 @@
         }
 
         // Function to view organization details
-        function viewOrganizationDetails(name, type, address, contact) {
+        function viewOrganizationDetails(name, type, address, contact, firstName, lastName, gender, email, password, area, governorate) {
             document.getElementById("org-name").textContent = name;
             document.getElementById("org-type").textContent = type;
             document.getElementById("org-address").textContent = address;
             document.getElementById("org-contact").textContent = contact;
+            document.getElementById("org-firstname").textContent = firstName;
+            document.getElementById("org-lastname").textContent = lastName;
+            document.getElementById("org-gender").textContent = gender;
+            document.getElementById("org-email").textContent = email;
+            document.getElementById("org-area").textContent = area;
+            document.getElementById("org-governorate").textContent = governorate;
             document.getElementById("organization-details").style.display = "block";
         }
 

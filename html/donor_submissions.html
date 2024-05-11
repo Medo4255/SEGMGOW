@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Submission Review</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        li:hover {
+            background-color: #e0e0e0;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-btn {
+            padding: 10px 20px;
+            background-color: #3328a7;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background-color: #3a2ebc;
+        }
+
+        .accept-btn {
+            background-color: #28a745;
+            color: #fff;
+            margin-left: 10px;
+        }
+
+        .accept-btn:hover {
+            background-color: #218838;
+        }
+
+        .reject-btn {
+            background-color: #dc3545;
+            color: #fff;
+            margin-left: 10px;
+        }
+
+        .reject-btn:hover {
+            background-color: #c82333;
+        }
+
+        #donor-details {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Donor Review</h1>
+        <ul id="donor-list">
+            <li onclick="viewDonorDetails(0)">Donor 1</li>
+            <li onclick="viewDonorDetails(1)">Donor 2</li>
+            <li onclick="viewDonorDetails(2)">Donor 3</li>
+        </ul>
+        <div id="donor-details">
+            <h2>Donor Details</h2>
+            <p><strong>First Name:</strong> <span id="donor-first-name"></span></p>
+            <p><strong>Last Name:</strong> <span id="donor-last-name"></span></p>
+            <p><strong>Gender:</strong> <span id="donor-gender"></span></p>
+            <p><strong>Email:</strong> <span id="donor-email"></span></p>
+            <p><strong>Contact Number:</strong> <span id="donor-contact"></span></p>
+            <p><strong>Volunteer Type:</strong> <span id="donor-volunteer-type"></span></p>
+            <p><strong>Address:</strong> <span id="donor-address"></span></p>
+            <p><strong>Area:</strong> <span id="donor-area"></span></p>
+            <p><strong>Governorate:</strong> <span id="donor-governorate"></span></p>
+            <button class="download-btn" onclick="downloadDonorDetails()">Download Details</button>
+            <button class="accept-btn btn" onclick="acceptDonor()">Accept</button>
+            <button class="reject-btn btn" onclick="rejectDonor()">Reject</button>
+        </div>
+    </div>
+
+    <script>
+        // Dummy data for donors
+        const donors = [
+            {
+                firstName: "John",
+                lastName: "Doe",
+                gender: "Male",
+                email: "john@example.com",
+                contact: "123-456-7890",
+                volunteerType: "Donor",
+                address: "123 Main St",
+                area: "Downtown",
+                governorate: "New York"
+            },
+            {
+                firstName: "Jane",
+                lastName: "Smith",
+                gender: "Female",
+                email: "jane@example.com",
+                contact: "456-789-0123",
+                volunteerType: "Doctor",
+                address: "456 Elm St",
+                area: "Uptown",
+                governorate: "California"
+            },
+            {
+                firstName: "Alice",
+                lastName: "Johnson",
+                gender: "Female",
+                email: "alice@example.com",
+                contact: "789-012-3456",
+                volunteerType: "Teacher",
+                address: "789 Oak St",
+                area: "Midtown",
+                governorate: "Texas"
+            }
+        ];
+
+        let currentDonorIndex = null;
+
+        function viewDonorDetails(index) {
+            currentDonorIndex = index;
+            const donor = donors[index];
+            document.getElementById("donor-first-name").textContent = donor.firstName;
+            document.getElementById("donor-last-name").textContent = donor.lastName;
+            document.getElementById("donor-gender").textContent = donor.gender;
+            document.getElementById("donor-email").textContent = donor.email;
+            document.getElementById("donor-contact").textContent = donor.contact;
+            document.getElementById("donor-volunteer-type").textContent = donor.volunteerType;
+            document.getElementById("donor-address").textContent = donor.address;
+            document.getElementById("donor-area").textContent = donor.area;
+            document.getElementById("donor-governorate").textContent = donor.governorate;
+            document.getElementById("donor-details").style.display = "block";
+        }
+
+        function acceptDonor() {
+            if (currentDonorIndex !== null) {
+                donors.splice(currentDonorIndex, 1);
+                resetDonorDetails();
+                updateDonorList();
+            }
+        }
+
+        function rejectDonor() {
+            if (currentDonorIndex !== null) {
+                donors.splice(currentDonorIndex, 1);
+                resetDonorDetails();
+                updateDonorList();
+            }
+        }
+
+        function resetDonorDetails() {
+            document.getElementById("donor-details").style.display = "none";
+            currentDonorIndex = null;
+            if (donors.length > 0) {
+                viewDonorDetails(0); // Reset to the first donor after accepting/rejecting
+            }
+        }
+
+        function updateDonorList() {
+            const list = document.getElementById("donor-list");
+            list.innerHTML = "";
+            donors.forEach((donor, index) => {
+                const listItem = document.createElement("li");
+                listItem.textContent = `Donor ${index + 1}`;
+                listItem.onclick = () => viewDonorDetails(index);
+                list.appendChild(listItem);
+            });
+        }
+
+        function downloadDonorDetails() {
+            const donor = donors.find(donor => donor.firstName === document.getElementById("donor-first-name").textContent);
+            const details = `
+                First Name: ${donor.firstName}
+                Last Name: ${donor.lastName}
+                Gender: ${donor.gender}
+                Email: ${donor.email}
+                Contact Number: ${donor.contact}
+                Volunteer Type: ${donor.volunteerType}
+                Address: ${donor.address}
+                Area: ${donor.area}
+                Governorate: ${donor.governorate}
+            `;
+
+            const blob = new Blob([details], { type: "text/plain" });
+            const url = URL.createObjectURL(blob);
+
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "donor_details.txt";
+            document.body.appendChild(a);
+            a.click();
+
+            URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+        }
+
+        updateDonorList();
+    </script>
+</body>
+
+</html>
