@@ -6,6 +6,251 @@
     <title>SEGMGOW Charity</title>
     <link rel="stylesheet" href="css/Home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4b5a6d;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 3px solid #ff7b54;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            margin: 0;
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+
+        .charity {
+            color: #ff7b54;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ff7b54;
+        }
+
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            max-width: 100%;
+            margin-top: 30px;
+        }
+
+        .slider-container img {
+            width: 100%;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .slider-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #ffffff;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .slider-text span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .slider-text p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .slider-container:hover img {
+            transform: scale(1.1);
+        }
+
+        .slider-container:hover .slider-text {
+            opacity: 1;
+        }
+
+        .hero {
+            background-color: #ffffff;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            color: #666666;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background-color: #ff7b54;
+            color: #ffffff;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #ff5a2b;
+        }
+
+        footer {
+            background-color: #4b5a6d;
+            color: #ffffff;
+            padding: 40px 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        footer .container {
+            text-align: center;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .footer-left {
+            flex: 1;
+        }
+
+        .extra-links ul {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+
+        .extra-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .extra-links ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .extra-links ul li a:hover {
+            color: #ff7b54;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: #ffffff;
+            font-size: 24px;
+            margin-right: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #ff7b54;
+        }
+
+        .footer-right {
+            flex: 1;
+        }
+
+        .signup-section h3 {
+            font-size: 24px;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .signup-section form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .signup-section input[type="email"] {
+            width: 200px;
+            padding: 12px;
+            border: none;
+            border-radius: 20px;
+            margin-right: 10px;
+        }
+
+        .signup-section button {
+            background-color: #ff7b54;
+            color: #ffffff;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .signup-section button:hover {
+            background-color: #ff5a2b;
+        }
+
+        p.copyright {
+            font-size: 16px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -23,7 +268,6 @@
     </header>
 
     <div class="slider-container">
-        <!-- Add your slider images here -->
         <img src="slider-image1.jpg" alt="Slider Image 1">
         <img src="slider-image2.jpg" alt="Slider Image 2">
         <img src="slider-image3.jpg" alt="Slider Image 3">
@@ -46,14 +290,14 @@
             <div class="footer-container">
                 <div class="footer-left">
                     <div class="extra-links">
+                        <h3>Quick Links</h3>
                         <ul>
-                            <li style="color: white;"><a href="#">Bugs and Fixes</a></li>
+                            <li><a href="#">Bugs and Fixes</a></li>
                             <li><a href="#">Privacy Policy</a></li>
                             <li><a href="#">Terms of Service</a></li>
                             <li><a href="#">FAQs</a></li>
                         </ul>
                     </div>
-                    <hr style="background-color: white; height: 2px; border: none;">
                     <div class="social-links">
                         <a href="#" class="fa fa-facebook"></a>
                         <a href="#" class="fa fa-twitter"></a>
@@ -70,11 +314,9 @@
                     </div>
                 </div>
             </div>
-            <p>&copy; 2024 SEGMGOW Charity. All rights reserved.</p>
+            <p class="copyright">&copy; 2024 SEGMGOW Charity. All rights reserved.</p>
         </div>
     </footer>
     
-
-    <script src="js/Home.js"></script>
 </body>
 </html>
