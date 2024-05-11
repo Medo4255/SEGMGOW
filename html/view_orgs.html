@@ -97,6 +97,29 @@
         .toggle-btn button.active {
             background-color: #0056b3;
         }
+
+        .location {
+            display: block;
+            margin-top: 20px;
+            margin-bottom: 30px ;
+            margin-left: 100px;
+            width: 300px;
+        }
+
+        .delete-btn {
+            margin-left: 30px;
+            padding: 5px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer
+        }
+
+        .delete-btn:hover {
+            background-color: #da190b;
+        }
+        
     </style>
 </head>
 
@@ -107,16 +130,23 @@
             <button class="toggle-btn__btn active" id="registered-btn" onclick="toggleList('registered')">Registered Organizations</button>
             <button class="toggle-btn__btn" id="requesting-btn" onclick="toggleList('requesting')">Requesting Organizations</button>
         </div>
-        <input type="text" id="filter-input" class="filter-input" placeholder="Enter filter criteria">
+        <input type="text" id="filter-input" class="filter-input" placeholder="Enter filter criteria or search by organization name">
+        <!-- <select id="filter-select" class="filter-select">
+            <option value="name">Name</option>
+            <option value="area">Area</option>
+            <option value="governorate">Governorate</option>
+            <option value="type">Type</option>
+        </select> -->
         <button class="filter-btn" onclick="filterOrganizations()">Filter</button>
+    
         <ul id="registered-list" style="display: block;">
-            <li onclick="viewOrganizationDetails('Registered Org 1', 'Type A', '123 Main St', '123-456-7890', 'John', 'Doe', 'Male', 'john@example.com', 'Area A', 'Governorate A')">Registered Org 1 - Type A</li>
-            <li onclick="viewOrganizationDetails('Registered Org 2', 'Type B', '456 Elm St', '456-789-0123', 'Jane', 'Smith', 'Female', 'jane@example.com', 'Area B', 'Governorate B')">Registered Org 2 - Type B</li>
-            <li onclick="viewOrganizationDetails('Registered Org 3', 'Type A', '789 Oak St', '789-012-3456', 'Jack', 'Johnson', 'Male', 'jack@example.com', 'Area C', 'Governorate C')">Registered Org 3 - Type A</li>
+            <li onclick="viewOrganizationDetails(0,'registered')">Org 1 - Type A</li>
+            <li onclick="viewOrganizationDetails(1,'registered')">Org 2 - Type B</li>
+            <li onclick="viewOrganizationDetails(2,'registered')">Org 3 - Type C</li>
         </ul>
         <ul id="requesting-list" style="display: none;">
-            <li onclick="viewOrganizationDetails('Requesting Org 1', 'Type C', '012 Pine St', '012-345-6789', 'Alice', 'Adams', 'Female', 'alice@example.com', 'Area D', 'Governorate D')">Requesting Org 1 - Type C</li>
-            <li onclick="viewOrganizationDetails('Requesting Org 2', 'Type B', '345 Maple St', '345-678-9012', 'Bob', 'Brown', 'Male', 'bob@example.com', 'Area E', 'Governorate E')">Requesting Org 2 - Type B</li>
+            <li onclick="viewOrganizationDetails(0,'requesting')">Org A - Type C</li>
+            <li onclick="viewOrganizationDetails(1,'requesting')">Org B - Type B</li>
         </ul>
         <div id="organization-details">
             <h2>Organization Details</h2>
@@ -130,85 +160,14 @@
             <p><strong>Email:</strong> <span id="org-email"></span></p>
             <p><strong>Area:</strong> <span id="org-area"></span></p>
             <p><strong>Governorate:</strong> <span id="org-governorate"></span></p>
+            <p><strong>Location:</strong> <img id="org-location" class="location"></img></p>
+            <div id="delete-btn-container" style="display: none;">
+                <button class="delete-btn btn" onclick="deleteOrganization()">Delete Organization account</button>
+            </div>
         </div>
     </div>
 
-    <script>
-        // Function to toggle between registered and requesting organizations
-        function toggleList(type) {
-            const registeredBtn = document.getElementById("registered-btn");
-            const requestingBtn = document.getElementById("requesting-btn");
-
-            if (type === "registered") {
-                registeredBtn.classList.add("active");
-                requestingBtn.classList.remove("active");
-                document.getElementById("registered-list").style.display = "block";
-                document.getElementById("requesting-list").style.display = "none";
-            } else {
-                registeredBtn.classList.remove("active");
-                requestingBtn.classList.add("active");
-                document.getElementById("registered-list").style.display = "none";
-                document.getElementById("requesting-list").style.display = "block";
-            }
-
-            // Hide organization details when toggling
-            hideOrganizationDetails();
-        }
-
-        // Function to filter organizations
-        function filterOrganizations() {
-            var input, filter, ul, li, name, i;
-            input = document.getElementById("filter-input");
-            filter = input.value.toUpperCase();
-            
-            // For registered organizations
-            ul = document.getElementById("registered-list");
-            li = ul.getElementsByTagName("li");
-            for (i = 0; i < li.length; i++) {
-                name = li[i].innerText.toUpperCase();
-                if (name.indexOf(filter) > -1) {
-                    li[i].style.display = "";
-                } else {
-                    li[i].style.display = "none";
-                }
-            }
-
-            // For requesting organizations
-            ul = document.getElementById("requesting-list");
-            li = ul.getElementsByTagName("li");
-            for (i = 0; i < li.length; i++) {
-                name = li[i].innerText.toUpperCase();
-                if (name.indexOf(filter) > -1) {
-                    li[i].style.display = "";
-                } else {
-                    li[i].style.display = "none";
-                }
-            }
-
-            // Hide organization details when filtering
-            hideOrganizationDetails();
-        }
-
-        // Function to view organization details
-        function viewOrganizationDetails(name, type, address, contact, firstName, lastName, gender, email, password, area, governorate) {
-            document.getElementById("org-name").textContent = name;
-            document.getElementById("org-type").textContent = type;
-            document.getElementById("org-address").textContent = address;
-            document.getElementById("org-contact").textContent = contact;
-            document.getElementById("org-firstname").textContent = firstName;
-            document.getElementById("org-lastname").textContent = lastName;
-            document.getElementById("org-gender").textContent = gender;
-            document.getElementById("org-email").textContent = email;
-            document.getElementById("org-area").textContent = area;
-            document.getElementById("org-governorate").textContent = governorate;
-            document.getElementById("organization-details").style.display = "block";
-        }
-
-        // Function to hide organization details
-        function hideOrganizationDetails() {
-            document.getElementById("organization-details").style.display = "none";
-        }
-    </script>
+    <script src = "../js/view_orgs.js"></script>
 </body>
 
 </html>
