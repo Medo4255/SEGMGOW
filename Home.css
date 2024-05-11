@@ -1,0 +1,249 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    margin: 0;
+    float: left;
+    font-size: 28px;
+}
+
+header nav {
+    float: right;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    margin: 0 20px;
+    font-size: 18px;
+}
+
+.slider {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    min-width: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+}
+
+.slider-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+}
+
+.slider-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    z-index: 1;
+}
+
+.hero {
+    background-color: #f2f2f2;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero h2 {
+    margin: 0;
+    font-size: 36px;
+}
+
+.hero p {
+    margin-top: 20px;
+    color: #666;
+    font-size: 18px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.features {
+    padding: 100px 0;
+}
+
+.features h2 {
+    text-align: center;
+    font-size: 32px;
+}
+
+.feature {
+    margin-top: 40px;
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.extra-links {
+    float: left;
+    margin-right: 20px;
+}
+
+/* Style for the extra links */
+.extra-links ul {
+    list-style-type: disc; /* Use bullet points for each item */
+    padding: 0;
+    margin: 0;
+}
+
+.extra-links li {
+    color: white; /* Set text color to white */
+    font-size: 16px; /* Increase font size */
+    text-align: left; /* Align text to the left */
+}
+
+/* Style for the horizontal line */
+.extra-links hr {
+    border: none;
+    border-bottom: 2px solid white; /* White horizontal line */
+    width: 100%; /* Same width as the list */
+}
+
+
+.extra-links li a:hover {
+    text-decoration: underline;
+}
+
+
+.double-line {
+    border: none;
+    border-top: 2px double white; /* Double white horizontal line */
+    width: 200px; /* Set width to 200px */
+}
+
+.btn.clicked {
+    background-color: #555;
+    transition: background-color 0.3s ease;
+}
+
+/* Update the style for social links */
+.social-links .fa {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #3B5998; /* Default background color */
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+    color: white; /* Set the color of the icon */
+    text-decoration: none;
+}
+
+/* Add a common class for all social icons to control background color */
+.fa-facebook,
+.fa-twitter,
+.fa-instagram {
+    background-color: #3B5998; /* Initial background color */
+}
+
+/* Update the style for the hovered state */
+.social-links .fa:hover {
+    background-color: #555; /* Background color on hover */
+}
+
+/* Update the font size of the icons */
+.social-links .fa {
+    font-size: 24px;
+}
+
+/* Add a class for the cool effect on click */
+.social-links .fa.clicked {
+    background-color: #555; /* Change background color on click */
+    transition: background-color 0.3s ease;
+}
+
+/* Style for the footer container */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Style for the left side of the footer */
+.footer-left {
+    display: flex;
+    align-items: flex-start; /* Align items at the start of the cross axis (top) */
+    flex-direction: column; /* Arrange items vertically */
+}
+
+/* Style for the social links */
+.social-links {
+    margin-bottom: 10px; /* Add margin between social links and extra links */
+}
+
+/* Additional styling for responsiveness */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-left,
+    .footer-right {
+        margin-bottom: 20px;
+    }
+}
