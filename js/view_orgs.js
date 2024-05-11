@@ -10,7 +10,7 @@ const registeredOrgs = [
         email: 'john@example.com',
         area: 'Area A',
         governorate: 'Governorate A',
-        location: '../images/map 1.jpg'
+        location: 'https://www.google.com/maps/search/?api=1&query=-27.1151506,-109.395043'
     },
     {
         name: 'Org 2',
@@ -23,7 +23,7 @@ const registeredOrgs = [
         email: 'jane@example.com',
         area: 'Area B',
         governorate: 'Governorate B',
-        location: '../images/map 2.png'
+        location: 'https://www.google.com/maps/search/?api=1&query=37.970833, 23.726110'
     },
     {
         name: 'Org 3',
@@ -36,7 +36,7 @@ const registeredOrgs = [
         email: 'robert@example.com',
         area: 'Area A',
         governorate: 'Governorate A',
-        location: '../images/map 3.jpeg'
+        location: 'https://www.google.com/maps/search/?api=1&query=29.9752687,31.1375674'
     }
 ];
 
@@ -52,7 +52,7 @@ const requestingOrgs = [
         email: 'mary@example.com',
         area: 'Area C',
         governorate: 'Governorate C',
-        location: '../images/map 1.jpg'
+        location: 'https://www.google.com/maps/search/?api=1&query=29.9868331,31.4387709'
     },
     {
         name: 'Org B',
@@ -65,7 +65,7 @@ const requestingOrgs = [
         email: 'william@example.com',
         area: 'Area B',
         governorate: 'Governorate B',
-        location: '../images/map 3.jpeg'
+        location: 'https://www.google.com/maps/search/?api=1&query=30.0039366,31.6989172'
     }
 ];
 
@@ -170,7 +170,7 @@ function viewOrganizationDetails(index, type) {
     document.getElementById("org-email").textContent = org.email;
     document.getElementById("org-area").textContent = org.area;
     document.getElementById("org-governorate").textContent = org.governorate;
-    document.getElementById("org-location").src = org.location; 
+    document.getElementById("org-location").href = org.location; 
     document.getElementById("organization-details").style.display = "block";
 }
 
