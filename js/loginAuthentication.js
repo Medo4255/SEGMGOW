@@ -15,7 +15,6 @@ var loginBtn = document.getElementById("login-btn");
   
       for(let i = 0; i<adminNames.length;i++){
           if(username == adminNames[i] && password == adminPasswords[i]){
-            console.log("wocwiedcuiwcbkwbckws");
             window.location.replace("../html/admin.html");
           }
       }
