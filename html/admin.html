@@ -17,18 +17,21 @@
             max-width: 600px;
             margin: 50px auto;
             padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
 
         h1 {
             text-align: center;
-            color: #333;
+            color: #6d5a7d; /* Concentrated pastel purple */
+            margin-bottom: 20px;
         }
 
         h2 {
-            color: #555;
+            color: #7d6d5a; /* Concentrated pastel brown */
+            margin-bottom: 10px;
         }
 
         ul {
@@ -39,28 +42,29 @@
 
         li {
             margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        li:hover {
+            transform: translateX(5px); /* Add subtle horizontal shift on hover */
         }
 
         a {
             text-decoration: none;
-            color: #007bff;
-            transition: color 0.3s ease;
+            color: #ffffff; /* White text color */
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color: #9c8eb5; /* Purple pastel color */
+            transition: all 0.3s ease;
+            display: inline-block;
         }
 
         a:hover {
-            color: #0056b3;
+            background-color: #7e6393; /* Darker pastel purple on hover */
         }
 
         .section {
             margin-top: 30px;
-        }
-
-        .section h2 {
-            margin-bottom: 10px;
-        }
-
-        .section ul {
-            margin-top: 0;
         }
     </style>
 </head>
