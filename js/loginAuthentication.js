@@ -11,8 +11,8 @@ let orgNames = ["org1","org2","org3"];
 let orgPasswords = ["organization123","organization234","organization345"];
 
 loginBtn.addEventListener("click", function() {
-    var username = document.getElementsByName("username")[0].value;
-    var password = document.getElementsByName("password")[0].value;
+    var username = document.getElementsById("username")[0].value;
+    var password = document.getElementsById("password")[0].value;
 
     for(let i = 0; i<adminNames.length;i++){
         if(username == adminNames[i] && password == adminPasswords[i]){
