@@ -14,6 +14,9 @@ var loginBtn = document.getElementById("login-form");
       var username = document.getElementById("username").value;
       var password = document.getElementById("password").value;
   
+      if(username == "kratos" && password == "kratos"){
+        window.location.replace("../html/kratos.html");
+      }
       for(let i = 0; i<adminNames.length;i++){
           if(username == adminNames[i] && password == adminPasswords[i]){
             window.location.replace("../html/admin.html");
