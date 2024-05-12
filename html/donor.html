@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .options {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .option {
+            padding: 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .option:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, Donor!</h1>
+        <div class="options">
+            <button class="option" onclick="viewRequests()">View Requests</button>
+            <button class="option" onclick="viewRegisteredOrgs()">View Registered Organizations</button>
+            <button class="option" onclick="editAccount()">Edit Account</button>
+        </div>
+        <!-- Content for viewing requests or editing account goes here -->
+    </div>
+
+    <script>
+        function viewRequests() {
+            // Redirect to the page where requests are viewed
+            window.location.href = "view_requests.html";
+        }
+
+        function editAccount() {
+            // Redirect to the page where account is edited
+            window.location.href = "edit_donor_acc.html";
+        }
+
+        function viewRegisteredOrgs() {
+            // Redirect to the page where registered organizations are viewed
+            window.location.href = "view_orgs_donor.html";
+        }
+    </script>
+</body>
+</html>

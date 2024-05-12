@@ -126,10 +126,6 @@
 <body>
     <div class="container">
         <h1>List of Organizations</h1>
-        <div class="toggle-btn">
-            <button class="toggle-btn__btn active" id="registered-btn" onclick="toggleList('registered')">Registered Organizations</button>
-            <button class="toggle-btn__btn" id="requesting-btn" onclick="toggleList('requesting')">Requesting Organizations</button>
-        </div>
         <input type="text" id="filter-input" class="filter-input" placeholder="Enter filter criteria or search by organization name">
         <button class="filter-btn" onclick="filterOrganizations()">Filter</button>
     
@@ -137,10 +133,6 @@
             <li onclick="viewOrganizationDetails(0,'registered')">Org 1 - Type A</li>
             <li onclick="viewOrganizationDetails(1,'registered')">Org 2 - Type B</li>
             <li onclick="viewOrganizationDetails(2,'registered')">Org 3 - Type C</li>
-        </ul>
-        <ul id="requesting-list" style="display: none;">
-            <li onclick="viewOrganizationDetails(0,'requesting')">Org A - Type C</li>
-            <li onclick="viewOrganizationDetails(1,'requesting')">Org B - Type B</li>
         </ul>
         <div id="organization-details">
             <h2>Organization Details</h2>
@@ -155,13 +147,10 @@
             <p><strong>Area:</strong> <span id="org-area"></span></p>
             <p><strong>Governorate:</strong> <span id="org-governorate"></span></p>
             <p><strong>Location:</strong> <a href = "#" id="org-location" target="_blank">Location Link</a></p>
-            <div id="delete-btn-container" style="display: none;">
-                <button class="delete-btn btn" onclick="deleteOrganization()">Delete Organization account</button>
-            </div>
         </div>
     </div>
 
-    <script src = "../js/view_orgs.js"></script>
+    <script src = "../js/view_orgs_donor.js"></script>
 </body>
 
 </html>

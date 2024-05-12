@@ -98,9 +98,9 @@
     <div class="container">
         <h1>Donor Review</h1>
         <ul id="donor-list">
-            <li onclick="viewDonorDetails(0)">Donor 1</li>
-            <li onclick="viewDonorDetails(1)">Donor 2</li>
-            <li onclick="viewDonorDetails(2)">Donor 3</li>
+            <li onclick="viewDonorDetails(0)">Donor 1 - Doctor</li>
+            <li onclick="viewDonorDetails(1)">Donor 2 - Doctor</li>
+            <li onclick="viewDonorDetails(2)">Donor 3 - Teacher</li>
         </ul>
         <div id="donor-details">
             <h2>Donor Details</h2>
@@ -128,7 +128,7 @@
                 gender: "Male",
                 email: "john@example.com",
                 contact: "123-456-7890",
-                volunteerType: "Donor",
+                volunteerType: "Doctor",
                 address: "123 Main St",
                 area: "Downtown",
                 governorate: "New York"
@@ -203,7 +203,7 @@
             list.innerHTML = "";
             donors.forEach((donor, index) => {
                 const listItem = document.createElement("li");
-                listItem.textContent = `Donor ${index + 1}`;
+                listItem.textContent = donor.firstName + " " + donor.lastName + " - " + donor.volunteerType;
                 listItem.onclick = () => viewDonorDetails(index);
                 list.appendChild(listItem);
             });

@@ -71,26 +71,6 @@ const requestingOrgs = [
 
 let currentOrganizationIndex = null;
 
-// Function to toggle between registered and requesting organizations
-function toggleList(type) {
-    const registeredBtn = document.getElementById("registered-btn");
-    const requestingBtn = document.getElementById("requesting-btn");
-
-    if (type === "registered") {
-        registeredBtn.classList.add("active");
-        requestingBtn.classList.remove("active");
-        document.getElementById("registered-list").style.display = "block";
-        document.getElementById("requesting-list").style.display = "none";
-    } else {
-        registeredBtn.classList.remove("active");
-        requestingBtn.classList.add("active");
-        document.getElementById("registered-list").style.display = "none";
-        document.getElementById("requesting-list").style.display = "block";
-    }
-
-    // Hide organization details when toggling
-    hideOrganizationDetails();
-}
 
 // Function to filter organizations
 function filterOrganizations() {
@@ -120,30 +100,6 @@ function filterOrganizations() {
             li[i].style.display = "none";
         }
     }
-
-    // For requesting organizations
-    ul = document.getElementById("requesting-list");
-    li = ul.getElementsByTagName("li");
-    for (i = 0; i < li.length; i++) {
-        if (filter === "") {
-            li[i].style.display = "";
-            continue;
-        }
-        var org = requestingOrgs[i];
-        var matchFound = false;
-        for (j in org) {
-            if (typeof org[j] === 'string' && org[j].toUpperCase() === filter) {
-                matchFound = true;
-                break;
-            }
-        }
-        if (matchFound) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
-        }
-    }
-
     // Hide organization details when filtering
     hideOrganizationDetails();
 }
@@ -154,11 +110,6 @@ function viewOrganizationDetails(index, type) {
     currentOrganizationIndex = index;
     if(type === "registered"){
         org = registeredOrgs[index];
-        document.getElementById('delete-btn-container').style.display = 'block';
-    }
-    else{
-        org = requestingOrgs[index];
-        document.getElementById('delete-btn-container').style.display = 'none';
     }
     document.getElementById("org-name").textContent = org.name;
     document.getElementById("org-type").textContent = org.type;
@@ -172,35 +123,6 @@ function viewOrganizationDetails(index, type) {
     document.getElementById("org-governorate").textContent = org.governorate;
     document.getElementById("org-location").href = org.location; 
     document.getElementById("organization-details").style.display = "block";
-}
-
-function deleteOrganization() {
-    if (currentOrganizationIndex !== null) {
-        if (confirm("Are you sure you want to delete the selected organization?")) {
-            registeredOrgs.splice(currentOrganizationIndex, 1);
-            resetOrganizationDetails();
-            updateOrganizationList();
-        }
-    }
-}
-
-function resetOrganizationDetails() {
-    document.getElementById("organization-details").style.display = "none";
-    currentOrganizationIndex = null;
-    if(registeredOrgs.length > 0){
-    viewOrganizationDetails(0,"registered"); // Reset to the first organization after accepting/rejecting
-    }
-}
-
-function updateOrganizationList() {
-    const list = document.getElementById("registered-list");
-    list.innerHTML = "";
-    registeredOrgs.forEach((org, index) => {
-        const listItem = document.createElement("li");
-        listItem.textContent = org.name;
-        listItem.onclick = () => viewOrganizationDetails(index,"registered");
-        list.appendChild(listItem);
-    });
 }
 
 // Function to hide organization details

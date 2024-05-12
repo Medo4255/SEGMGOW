@@ -1,4 +1,4 @@
-var loginBtn = document.getElementById("login-btn"); 
+var loginBtn = document.getElementById("login-form"); 
     
   let adminNames = ["admin"];
   let adminPasswords = ["admin123"];
@@ -9,7 +9,8 @@ var loginBtn = document.getElementById("login-btn");
   let orgNames = ["org1","org2","org3"];
   let orgPasswords = ["organization123","organization234","organization345"];
   
-  loginBtn.addEventListener("click", function() {
+  loginBtn.addEventListener("submit", function(event) {
+      event.preventDefault();
       var username = document.getElementById("username").value;
       var password = document.getElementById("password").value;
   
@@ -30,4 +31,8 @@ var loginBtn = document.getElementById("login-btn");
             window.location.replace("../html/org.html");
           }
       }
+  });
+
+  document.getElementById('dark-mode-toggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
   });
