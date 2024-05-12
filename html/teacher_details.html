@@ -45,14 +45,14 @@
         }
         button {
             padding: 10px 20px;
-            background-color: #007bff;
+            background-color: #17a2b8;
             color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
         button:hover {
-            background-color: #0056b3;
+            background-color: #106977;
         }
         .info-message {
             color: #888;
@@ -110,11 +110,11 @@
             
             // Display success message
             const message = document.createElement('p');
-            message.textContent = `Submission successful. Redirecting in 5 seconds...`;
+            message.textContent = `Submission successful. Redirecting in 3 seconds...`;
             document.body.appendChild(message);
 
             // Countdown timer
-            let seconds = 5;
+            let seconds = 3;
             const timer = setInterval(() => {
                 seconds--;
                 message.textContent = `Submission successful. Redirecting in ${seconds} seconds...`;

@@ -301,68 +301,106 @@
       color: #fff;
     }
 
+.dark-mode input[type="text"],
+.dark-mode input[type="password"] {
+  background-color: #333;
+  color: #fff;
+}
 
-    .container {
-      max-width: 600px;
-      margin: 50px auto;
-      padding: 20px;
-      background-color: #f9f9f9;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 100px;
-      /* Center horizontally */
-    }
+.dark-mode .btn-1 {
+  background-color: #4b5a6d;
+  color: #fff;
+}
+.dark-mode .btn-1:hover {
+    background-color: #7c91ad;
+  }
+
+.dark-mode .error-message {
+  color: #fff;
+}
+
+.dark-mode a {
+  color: #fff;
+}
+
+.dark-mode .remember-me {
+  color: #fff;
+}
+
+.dark-mode #remember-me {
+  border-color: #fff;
+}
+
+.dark-mode #remember-me:checked {
+  border-color: #fff;
+  background-color: #4b5a6d;
+}
 
 
-    ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 20px 0;
-      text-align: center;
-      /* Center text */
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+.register-link .register-text {
+  text-decoration: underline;
+  color: #4b5a6d;
+  transition: color 0.5s ease;
+}
+
+.register-link .register-text:hover {
+  color: #6a7c8e;
+}
+.dark-mode .register-link .register-text {
+  color: #bbb;
+  transition: color 0.5s ease;
+}
+.dark-mode .register-link .register-text:hover {
+  color: #f6f6f6;
+}
 
 
 
-    li {
-      margin: 10px;
-      transition: transform 0.7s ease;
-      border-radius: 10px;
-      padding: 15px 30px;
-      font-size: 34px;
-      cursor: pointer;
-      background-color: #f2f2f2;
-      display: flex;
-      /* Create a flex container */
-      align-items: center;
-      /* Center text vertically */
-      justify-content: center;
-      /* Center text horizontally */
-      color: #333;
-
-    }
-
-    li a {
-      font-size: 24px;
-      align-items: center;
-      margin-bottom: 5.5px;
-    }
-
-    li:hover {
-      transform: scale(1.05);
-      align-items: center;
-      /* Scale up on hover */
-
-      color: #ffffff;
-    }
   </style>
+</head> -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .options {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .option {
+            padding: 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .option:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 
 <header class="sticky-header">

@@ -61,7 +61,9 @@
             font-weight: 600;
             /* Adjust font weight */
             padding: 10px 20px;
-            /* Add padding */
+            background-color: #17a2b8;
+            color: #fff;
+            border: none;
             border-radius: 5px;
             /* Add border radius */
             transition: background-color 0.3s ease;
@@ -252,160 +254,14 @@
             border: none;
             padding: 0;
             cursor: pointer;
-          }
-      
-          .dark-mode-toggle svg {
-            width: 24px;
-            height: 24px;
-            fill: none;
-            stroke: currentColor;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-          }
-      
-          .dark-mode-toggle .moon {
-            display: none;
-          }
-      
-          .dark-mode .dark-mode-toggle .moon {
-            display: block;
-          }
-      
-          .dark-mode .dark-mode-toggle .sun {
-            display: none;
-          }
-      
-      
-          .dark-mode {
-            background-color: #333;
-            color: #fff;
-          }
-      
-          .dark-mode .login-page {
-            background-color: #444;
-            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
-          }
-      
-      
-          .dark-mode .dark-mode-toggle .moon {
-            fill: #fff;
-          }
-      
-          .dark-mode h2 {
-            color: #fff;
-          }
-      
-          .dark-mode label {
-            color: #fff;
-          }
-      
-      
-          .container {
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 20px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 100px;
-            /* Center horizontally */
-          }
-      
-      
-          ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 20px 0;
-            text-align: center;
-            /* Center text */
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-          }
-      
-      
-      
-          li {
-            margin: 10px;
-            transition: transform 0.7s ease;
-            border-radius: 10px;
-            padding: 15px 30px;
-            font-size: 34px;
-            cursor: pointer;
-            background-color: #f2f2f2;
-            display: flex;
-            /* Create a flex container */
-            align-items: center;
-            /* Center text vertically */
-            justify-content: center;
-            /* Center text horizontally */
-            color: #333;
-      
-          }
-      
-          li a {
-            font-size: 24px;
-            align-items: center;
-            margin-bottom: 5.5px;
-          }
-      
-          li:hover {
-            transform: scale(1.05);
-            align-items: center;
-            /* Scale up on hover */
-      
-            color: #ffffff;
-          }
-        </style>
-      </head>
-      
-      <header class="sticky-header">
-        <div class="header-content">
-          <img src="../images/kratos-logo4.png" alt="Your Company Logo" class="logo">
-          <h1 class="website-name">SEGMGOW Charity</h1>
-          <nav class="header-links">
-            <a style="margin-left: -10px;" href="donor.html"><i class="fa fa-arrow-left" aria-hidden="true" style="margin-right: 15px;"></i>Return</a>
-            <span class="separator"></span>
-            <a href="Home.html">Home</a>
-            <span class="separator"></span>
-            <a href="#">Contact</a>
-            <span class="separator"></span>
-            <a class="login-link" href="#">Log In</a>
-            <span class="separator"></span>
-            <a href="settings.html" style="margin-left: -10px;"><i class="fa fa-cog" aria-hidden="true"></i></a>
-          </nav>
-        </div>
-      </header> 
-    <div class="button-container">
-        <button id="viewOrgsBtn" class="btn-1" onclick="redirectTo('doctor')">
-          <i class="fa fa-heart" style="margin-bottom: 5px;"></i>
-          <div class="button-content">Doctor</div>
-          <div class="description">
-            <p>This button allows you choose doctor proffession </p>
-          </div>
-      
-        </button>
-        <button id="viewDonorsBtn" class="btn-1" onclick="redirectTo('settings')" >
-          <i class="fa fa-eye" style="margin-bottom: 5px;"></i>
-          <div class="button-content"  >Settings</div>
-          <div class="description">
-            <p>This button allows you choose  proffession settings</p>
-          </div>
-        </button>
-        <button id="reviewSubmissionsBtn" class="btn-1"  onclick="redirectTo('teacher')">
-          <i class="fa fa-edit" style="margin-bottom: 5px;"></i>
-          <div class="button-content">Teacher</div>
-          <div class="description">
-            <p>This button allows you choose teacher proffession settings</p>
-          </div>
-        </button>
-        
-      </div>
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #106977;
+        }
+    </style>
+</head>
+<body>
     <div class="container">
         <h2>Choose Your Profession</h2>
         <button >Doctor</button>
