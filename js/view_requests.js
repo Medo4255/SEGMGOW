@@ -139,6 +139,20 @@
                     summary: "Comprehensive introduction to the field of psychology covering key concepts and theories.", 
                     picture: "psychology_book.jpg", 
                     quantity: 40 
+                },
+                {
+                    cat: "School",
+                    title: "Pens and Pencils for Elementary School",
+                    organization: "ABC School",
+                    type: "Stationary",
+                    quantity: 100
+                },
+                {
+                    cat: "School",
+                    title: "Erasers and Sharpeners for Elementary School",
+                    organization: "ABC School",
+                    type: "Stationary",
+                    quantity: 100
                 }
                 // Add more school supplies requests here
             ],
@@ -261,19 +275,24 @@
                     var quantityElement;
                     switch(dynamicCategory){
                         case "Clothes":
-                            quantityElement = details.querySelector("p:nth-child(6)");
+                            quantityElement = details.querySelector("p:nth-child(7)");
                             break;
                         case "Toys":
-                            quantityElement = details.querySelector("p:nth-child(4)");
+                            quantityElement = details.querySelector("p:nth-child(5)");
                             break;
                         case "Food":
-                            quantityElement = details.querySelector("p:nth-child(2)");
-                            break;
-                        case "Medical":
                             quantityElement = details.querySelector("p:nth-child(3)");
                             break;
+                        case "Medical":
+                            quantityElement = details.querySelector("p:nth-child(4)");
+                            break;
                         case "School":
-                            quantityElement = details.querySelector("p:nth-child(6)");
+                            if(request.type === "Book"){
+                                quantityElement = details.querySelector("p:nth-child(7)");
+                            }
+                            else{
+                                quantityElement = details.querySelector("p:nth-child(3)");
+                            }
                             break;
                         default:
                             break;
@@ -313,6 +332,7 @@
             switch (category) {
                 case "Clothes":
                     details.innerHTML = `
+                        <p>Organization: ${request.organization}</p>
                         <p>Type: ${request.type}</p>
                         <p>Age: ${request.age}</p>
                         <p>Gender: ${request.gender}</p>
@@ -323,6 +343,7 @@
                     break;
                 case "Toys":
                     details.innerHTML = `
+                        <p>Organization: ${request.organization}</p>
                         <p>Age: ${request.age}</p>
                         <p>Gender: ${request.gender}</p>
                         <p>Category: ${request.category}</p>
@@ -332,12 +353,14 @@
                     break;
                 case "Food":
                     details.innerHTML = `
+                        <p>Organization: ${request.organization}</p>
                         <p>Item Name: ${request.itemName}</p>
                         <p>Quantity: ${request.quantity}</p>
                     `;
                     break;
                 case "Medical":
                     details.innerHTML = `
+                        <p>Organization: ${request.organization}</p>
                         <p>Type: ${request.type}</p>
                         <p>Use: ${request.use}</p>
                         <p>Quantity: ${request.quantity}</p>
@@ -345,7 +368,9 @@
                     `;
                     break;
                 case "School":
+                    if(request.type == "Book"){
                     details.innerHTML = `
+                        <p>Organization: ${request.organization}</p>
                         <p>Book Name: ${request.bookName}</p>
                         <p>Author: ${request.author}</p>
                         <p>Language: ${request.language}</p>
@@ -354,6 +379,14 @@
                         <p>Quantity: ${request.quantity}</p>
                         <img src="${request.picture}" alt="${request.bookName}">
                     `;
+                    }
+                    else {
+                        details.innerHTML = `
+                        <p>Organization: ${request.organization}</p>
+                        <p>Type: ${request.type}</p>
+                        <p>Quantity: ${request.quantity}</p>
+                    `; 
+                    }
                     break;
                 case "Blood":
                     details.innerHTML = `
