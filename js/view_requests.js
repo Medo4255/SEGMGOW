@@ -1,15 +1,16 @@
         // Dummy data for requests
         const requests = {
             Clothes: [
-                { title: "Request 1: Clothes for Children", organization: "ABC Orphanage", type: "Shirts", age: "5-10 years", gender: "Unisex", season: "Winter", material: "Cotton", quantity: 20 },
-                { title: "Request 2: Warm Jackets", organization: "XYZ Shelter", type: "Jackets", age: "Adults", gender: "Male", season: "Winter", material: "Wool", quantity: 15 },
-                { title: "Request 3: Summer Clothes", organization: "Community Center", type: "Dresses", age: "12-15 years", gender: "Female", season: "Summer", material: "Polyester", quantity: 30 },
+                { cat: "Clothes", title: "Clothes for Children", organization: "ABC Orphanage", type: "Shirts", age: "5-10 years", gender: "Unisex", season: "Winter", material: "Cotton", quantity: 20 },
+                { cat: "Clothes", title: "Warm Jackets", organization: "XYZ Shelter", type: "Jackets", age: "Adults", gender: "Male", season: "Winter", material: "Wool", quantity: 15 },
+                { cat: "Clothes", title: "Summer Clothes", organization: "Community Center", type: "Dresses", age: "12-15 years", gender: "Female", season: "Summer", material: "Polyester", quantity: 30 },
                 // Add more clothes requests here
             ],
 
             Toys: [
             { 
-                title: "Request 1: Educational Toys for Toddlers", 
+                cat: "Toys",
+                title: "Educational Toys for Toddlers", 
                 organization: "ABC Daycare", 
                 type: "Toy", 
                 age: "Toddlers (1-3 years)", 
@@ -19,7 +20,8 @@
                 quantity: 20 
             },
             { 
-                title: "Request 2: Outdoor Toys for Children", 
+                cat: "Toys",
+                title: "Outdoor Toys for Children", 
                 organization: "XYZ Summer Camp", 
                 type: "Toy", 
                 age: "Children (5-10 years)", 
@@ -29,7 +31,8 @@
                 quantity: 15 
             },
             { 
-                title: "Request 3: Building Blocks for Preschoolers", 
+                cat: "Toys",
+                title: "Building Blocks for Preschoolers", 
                 organization: "Community Center", 
                 type: "Toy", 
                 age: "Preschoolers (3-5 years)", 
@@ -43,60 +46,64 @@
 
             Food: [
             { 
-                title: "Request 1: Non-perishable Food Items", 
+                cat: "Food",
+                title: "Non-perishable Food Items", 
                 organization: "Community Food Bank", 
                 itemName: "Non-perishable Food Items", 
-                quantity: "100 units" 
+                quantity: "100" 
             },
             { 
-                title: "Request 2: Fresh Fruits and Vegetables", 
+                cat: "Food",
+                title: "Fresh Fruits and Vegetables", 
                 organization: "Farmers Market", 
                 itemName: "Fruits and Vegetables", 
-                quantity: "50 KG" 
+                quantity: "50" 
             },
             { 
-                title: "Request 3: Canned Goods", 
+                cat: "Food",
+                title: "Canned Goods", 
                 organization: "Local Church", 
                 itemName: "Canned Goods", 
-                quantity: "200 units" 
+                quantity: "200" 
             }                
             // Add more food requests here
             ],
 
             Medical: [
             { 
-                title: "Request 1: PPE Kits", 
+                cat: "Medical",
+                title: "PPE Kits", 
                 organization: "ABC Hospital", 
                 type: "PPE Kits", 
                 use: "Protection for healthcare workers", 
                 image: "ppe_kits.jpg", 
-                quantity: "500 units" 
+                quantity: "500" 
             },
             { 
-                title: "Request 2: Medication", 
+                cat: "Medical",
+                title: "Medication", 
                 organization: "Red Cross", 
                 type: "Medication", 
                 use: "Treatment for patients", 
                 image: "medication.jpg", 
-                quantity: "1000 units" 
+                quantity: "1000" 
             },
             { 
-                title: "Request 3: Medical Equipment", 
+                cat: "Medical",
+                title: "Medical Equipment", 
                 organization: "Community Health Clinic", 
                 type: "Medical Equipment", 
                 use: "Diagnostic tools", 
                 image: "medical_equipment.jpg", 
-                quantity: "10 units" 
+                quantity: "10" 
             }
                 // Add more medical supplies requests here
             ],
 
             School: [
-                { title: "Request 1: Notebooks and Stationery", organization: "XYZ School", details: "Require notebooks and stationery items for students." },
-                { title: "Request 2: Backpacks", organization: "Local Charity", details: "Seeking donations of backpacks for back-to-school drive." },
-                { title: "Request 3: Art Supplies", organization: "Children's Art Center", details: "Collecting art supplies for after-school program." },
                 { 
-                    title: "Request 1: Books for Elementary Students", 
+                    cat: "School",
+                    title: "Books for Elementary Students", 
                     organization: "ABC School", 
                     type: "Book", 
                     bookName: "Mathematics for Elementary Teachers", 
@@ -108,7 +115,8 @@
                     quantity: 50 
                 },
                 { 
-                    title: "Request 2: Books for High School Students", 
+                    cat: "School",
+                    title: "Books for High School Students", 
                     organization: "XYZ High School", 
                     type: "Book", 
                     bookName: "To Kill a Mockingbird", 
@@ -120,7 +128,8 @@
                     quantity: 30 
                 },
                 { 
-                    title: "Request 3: Books for College Students", 
+                    cat: "School",
+                    title: "Books for College Students", 
                     organization: "Community College", 
                     type: "Book", 
                     bookName: "Introduction to Psychology", 
@@ -135,9 +144,10 @@
             ],
             Blood: [
             { 
-                title: "Request 1: Blood Donation Drive", 
+                cat: "Blood",
+                title: "Blood Donation Drive", 
                 patientName: "John Doe", 
-                bloodType: "O+", 
+                bloodType: "O", 
                 rhType: "+", 
                 hospitalName: "ABC Hospital", 
                 hospitalArea: "Downtown", 
@@ -145,9 +155,10 @@
                 hospitalAddress: "123 Main Street, Downtown, New York" 
             },
             { 
-                title: "Request 2: Urgent Blood Donation", 
+                cat: "Blood",
+                title: "Urgent Blood Donation", 
                 patientName: "Jane Smith", 
-                bloodType: "A-", 
+                bloodType: "A", 
                 rhType: "-", 
                 hospitalName: "XYZ Medical Center", 
                 hospitalArea: "Uptown", 
@@ -155,9 +166,10 @@
                 hospitalAddress: "456 Oak Avenue, Uptown, New York" 
             },
             { 
-                title: "Request 3: Blood for Emergency Surgery", 
+                cat: "Blood",
+                title: "Blood for Emergency Surgery", 
                 patientName: "Michael Johnson", 
-                bloodType: "B+", 
+                bloodType: "B", 
                 rhType: "+", 
                 hospitalName: "Community Hospital", 
                 hospitalArea: "Midtown", 
@@ -178,7 +190,7 @@
             if (category === "all") {
                 Object.values(requests).forEach(categoryRequests => {
                     categoryRequests.forEach(request => {
-                        addRequestToContainer(request, container);
+                        addRequestToContainer(request, container, category);
                     });
                 });
             } else {
@@ -202,22 +214,98 @@
             const detailsContainer = document.createElement("div");
             detailsContainer.classList.add("request-details");
 
+            const dynamicCategory = (category === "all") ? request.cat : category;
+
             // Populate details container with request details
-            const details = requestDetails(request, category);
+            var details = requestDetails(request, dynamicCategory);
             detailsContainer.appendChild(details); // Append details to the details container
+
+            // Create Quantity Input Field
+            const quantityInput = document.createElement("input");
+            quantityInput.type = "number";
+            quantityInput.placeholder = "Enter quantity...";
+            quantityInput.classList.add("quantity-input");
+            quantityInput.style.display = "none"; // Initially hide the input
+
+            // Create Donate Quantity Button
+            const quantityButton = document.createElement("button");
+            quantityButton.textContent = "Donate Quantity";
+            quantityButton.classList.add("quantity-button");
+            quantityButton.style.display = "none"; // Initially hide the button
 
             // Add click event to toggle details visibility
             title.addEventListener('click', function() {
-                detailsContainer.classList.toggle('visible');
+                if(detailsContainer.style.display === "" || detailsContainer.style.display === "none"){
+                    detailsContainer.style.display = "block";
+                    if(dynamicCategory !== "Blood"){
+                        quantityInput.style.display = "block"; // Show the input when title is clicked
+                        quantityButton.style.display = "block"; // Show the button when title is clicked
+                    }
+                }
+                else{
+                    detailsContainer.style.display = "none";
+                    if(dynamicCategory !== "Blood"){
+                        quantityInput.style.display = "none"; // Show the input when title is clicked
+                        quantityButton.style.display = "none"; // Show the button when title is clicked
+                    }
+                }
             });
 
-            // Append title and details container to requestDiv
+            // Add click event to donate quantity button
+            quantityButton.addEventListener("click", function() {
+                const quantity = parseInt(quantityInput.value);
+                if (!isNaN(quantity) && quantity > 0 && quantity <= request.quantity) {
+                    // Update the quantity in the request
+                    request.quantity -= quantity;
+                    // Update the displayed quantity
+                    var quantityElement;
+                    switch(dynamicCategory){
+                        case "Clothes":
+                            quantityElement = details.querySelector("p:nth-child(6)");
+                            break;
+                        case "Toys":
+                            quantityElement = details.querySelector("p:nth-child(4)");
+                            break;
+                        case "Food":
+                            quantityElement = details.querySelector("p:nth-child(2)");
+                            break;
+                        case "Medical":
+                            quantityElement = details.querySelector("p:nth-child(3)");
+                            break;
+                        case "School":
+                            quantityElement = details.querySelector("p:nth-child(6)");
+                            break;
+                        default:
+                            break;
+                    }
+                    quantityElement.textContent = `Quantity: ${request.quantity}`;
+                    // Show thank you message
+                    const thankYouMessage = document.createElement("p");
+                    thankYouMessage.textContent = "Thank you for your donation!";
+                    thankYouMessage.style.color = "green";
+                    requestDiv.appendChild(thankYouMessage);
+                    // Clear input after donation
+                    quantityInput.value = "";
+                } else {
+                    if (quantity > request.quantity) {
+                        alert("Cannot donate more than the available quantity.");
+                    } else {
+                        alert("Please enter a valid quantity.");
+                    }
+                }
+            });
+
+            // Append title, details container, quantity input, and quantity button to requestDiv
             requestDiv.appendChild(title);
             requestDiv.appendChild(detailsContainer);
+            requestDiv.appendChild(quantityInput);
+            requestDiv.appendChild(quantityButton);
 
             container.appendChild(requestDiv);
         }
 
+
+        
         // Function to create details section based on category
         function requestDetails(request, category) {
             const details = document.createElement("div");
@@ -280,11 +368,11 @@
                 default:
                     break;
             }
-            //details.style.display = "none"; // Hide details by default
-            document.getElementById("requests-container").appendChild(details);
+            details.style.display = "block";
             return details;
         }
 
+        // Function to search requests
         // Function to search requests
         function searchRequests() {
             const searchInput = document.getElementById("searchInput").value.toLowerCase();
@@ -293,12 +381,16 @@
 
             Object.values(requests).forEach(categoryRequests => {
                 categoryRequests.forEach(request => {
-                    if (request.title.toLowerCase().includes(searchInput) || (request.organization && request.organization.toLowerCase().includes(searchInput)) || (request.details && request.details.toLowerCase().includes(searchInput))) {
-                        addRequestToContainer(request, container);
+                    // Concatenate all details of the request into a single string
+                    const requestDetails = Object.values(request).join(" ").toLowerCase();
+                    // Search for the input string in the concatenated details
+                    if (requestDetails.includes(searchInput)) {
+                        addRequestToContainer(request, container,"all");
                     }
                 });
             });
         }
+
 
         // Show all requests initially
         showCategory("all");
