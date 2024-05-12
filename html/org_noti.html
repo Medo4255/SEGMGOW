@@ -82,6 +82,8 @@
     setTimeout(function() {
       // Inform user that they are waiting for the request to be fulfilled
       sendNotification("A request has been fulfilled!");
+      document.getElementById('notification-text').textContent = "Driver ETA is indicated by the progress bar. You'll receive a notification once the items are dropped off.";
+      startProgressBarAndTimer();
     }, randomTimeout1);
   }
 
@@ -94,16 +96,18 @@
       progressBar.value = currentValue;
       if (currentValue >= 60) {
         clearInterval(interval);
-        document.getElementById('notification-text').textContent = "Driver ETA is indicated by the progress bar. You'll receive a notification once the items are dropped off.";
         sendNotification("Driver has dropped off requested items.");
+        redirect();
       }
     }, 1000);
   }
 
+  function redirect(){
+    window.location.replace("../html/org.html")
+  }
   // Call updateSchedule function on page load
   updateSchedule();
   // Start progress bar and timer
-  startProgressBarAndTimer();
 </script>
 
 </body>
