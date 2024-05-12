@@ -247,6 +247,7 @@
             // Create Donate Quantity Button
             const quantityButton = document.createElement("button");
             quantityButton.textContent = "Donate Quantity";
+            quantityButton.className = "btn -1"
             quantityButton.classList.add("quantity-button");
             quantityButton.style.display = "none"; // Initially hide the button
 
