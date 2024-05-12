@@ -97,11 +97,14 @@
       if (currentValue >= 60) {
         clearInterval(interval);
         sendNotification("Driver has dropped off requested items.");
-        window.location.href("../html/org.html");
+        redirect();
       }
     }, 1000);
   }
 
+  function redirect(){
+    window.location.replace("../html/org.html")
+  }
   // Call updateSchedule function on page load
   updateSchedule();
   // Start progress bar and timer
