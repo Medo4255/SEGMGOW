@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Fulfilled Donation Posts</title>
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="../css/stylesOrg.css">
+</head>
+<body>
+    <div class="container">
+        <h1>View Fulfilled Donation Posts</h1>
+        
+        <!-- List of Fulfilled Donation Posts -->
+        <ul id="fulfilledPostsList">
+            <!-- Dummy data will be populated here -->
+        </ul>
+    </div>
+
+    <!-- Link to your JavaScript file -->
+    <script src="script.js"></script>
+
+    <script>
+        // Dummy data for fulfilled donation posts
+        let fulfilledPostsData = [
+            {
+                id: 1,
+                category: "Clothing",
+                description: "Men's T-shirts",
+                donorType: "Organization",
+                donorName: "ABC Organization",
+                fulfilledDate: "2024-05-01",
+                donorDetails: {
+                    firstName: "John",
+                    lastName: "Doe",
+                    email: "john.doe@example.com",
+                    contactNumber: "1234567890"
+                }
+            },
+            {
+                id: 2,
+                category: "Food",
+                description: "Canned Food Items",
+                donorType: "Teacher",
+                donorName: "Alice Smith",
+                fulfilledDate: "2024-04-30",
+                donorDetails: {
+                    firstName: "Alice",
+                    lastName: "Smith",
+                    email: "alice.smith@example.com",
+                    contactNumber: "9876543210"
+                }
+            },
+            // Additional fulfilled donation posts
+            {
+                id: 3,
+                category: "Books",
+                description: "Educational Books",
+                donorType: "Organization",
+                donorName: "XYZ Foundation",
+                fulfilledDate: "2024-05-02",
+                donorDetails: {
+                    firstName: "Emily",
+                    lastName: "Jones",
+                    email: "emily.jones@example.com",
+                    contactNumber: "5678901234"
+                }
+            },
+            {
+                id: 4,
+                category: "Medical Supplies",
+                description: "First Aid Kits",
+                donorType: "Doctor",
+                donorName: "Dr. Michael Brown",
+                fulfilledDate: "2024-05-03",
+                donorDetails: {
+                    firstName: "Michael",
+                    lastName: "Brown",
+                    email: "michael.brown@example.com",
+                    contactNumber: "3456789012"
+                }
+            },
+            {
+                id: 5,
+                category: "Toys",
+                description: "Educational Toys",
+                donorType: "Organization",
+                donorName: "Playtime Charity",
+                fulfilledDate: "2024-05-04",
+                donorDetails: {
+                    firstName: "Sophia",
+                    lastName: "Wilson",
+                    email: "sophia.wilson@example.com",
+                    contactNumber: "8901234567"
+                }
+            },
+            {
+                id: 6,
+                category: "School Supplies",
+                description: "Notebooks and Pens",
+                donorType: "Teacher",
+                donorName: "David Johnson",
+                fulfilledDate: "2024-05-05",
+                donorDetails: {
+                    firstName: "David",
+                    lastName: "Johnson",
+                    email: "david.johnson@example.com",
+                    contactNumber: "6789012345"
+                }
+            }
+            // Add more fulfilled posts as needed
+        ];
+
+        // Function to display fulfilled donation posts
+        function displayFulfilledPosts() {
+            const fulfilledPostsList = document.getElementById('fulfilledPostsList');
+
+            // Clear any existing list items
+            fulfilledPostsList.innerHTML = '';
+
+            // Loop through the fulfilledPostsData array and create list items
+            fulfilledPostsData.forEach(post => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+                    <strong>Category:</strong> ${post.category}<br>
+                    <strong>Description:</strong> ${post.description}<br>
+                    <strong>Fulfilled by:</strong> ${post.donorType} - ${post.donorName}<br>
+                    <strong>Fulfilled Date:</strong> ${post.fulfilledDate}<br>
+                    <button onclick="deleteFulfilledPost(${post.id})">Delete</button>
+                    <button onclick="viewDonorDetails(${post.id})">View Donor Details</button>
+                    <button onclick="viewDonorContact(${post.id})">View Donor Contact</button>
+                `;
+                fulfilledPostsList.appendChild(listItem);
+            });
+        }
+
+        // Function to delete a fulfilled donation post
+        function deleteFulfilledPost(postId) {
+            // Find index of the post in the array
+            const index = fulfilledPostsData.findIndex(post => post.id === postId);
+            if (index !== -1) {
+                // Remove the post from the array
+                fulfilledPostsData.splice(index, 1);
+                // Update the display
+                displayFulfilledPosts();
+            }
+        }
+
+        // Function to view donor details for a fulfilled post
+        function viewDonorDetails(postId) {
+            const post = fulfilledPostsData.find(post => post.id === postId);
+            if (post) {
+                alert(`Donor Details:\nName: ${post.donorDetails.firstName} ${post.donorDetails.lastName}\nEmail: ${post.donorDetails.email}\nContact Number: ${post.donorDetails.contactNumber}`);
+            }
+        }
+
+        // Function to view donor contact for a fulfilled post
+        function viewDonorContact(postId) {
+            const post = fulfilledPostsData.find(post => post.id === postId);
+            if (post) {
+                alert(`Donor Contact:\nEmail: ${post.donorDetails.email}\nContact Number: ${post.donorDetails.contactNumber}`);
+            }
+        }
+
+        // Call function to display fulfilled donation posts on page load
+        displayFulfilledPosts();
+    </script>
+</body>
+</html>

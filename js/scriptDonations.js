@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Redirect after animation ends
             setTimeout(() => {
-                window.location.href = 'org.html';
+                window.location.href = 'org_request_details.html';
             }, 4000); // Adjust duration to match animation duration + delay
         }
     });
