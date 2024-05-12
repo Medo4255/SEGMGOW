@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full Screen Video</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent scrolling */
+  }
+
+  video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* 100% of viewport width */
+    height: 100vh; /* 100% of viewport height */
+    object-fit: cover; /* Maintain aspect ratio and cover entire viewport */
+  }
+</style>
+</head>
+<body>
+
+<video autoplay loop>
+  <source src="../images/kratos-thor.mp4" type="video/mp4">
+</video>
+
+</body>
+</html>
