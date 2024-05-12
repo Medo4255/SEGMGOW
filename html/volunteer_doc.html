@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volunteer as Doctor</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    text-align: center;
+  }
+
+  h1 {
+    color: #333;
+    margin-top: 20px;
+  }
+
+  .post-container {
+    margin-top: 20px;
+  }
+
+  .post {
+    width: 350px;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .post:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .post h2 {
+    color: #555;
+    cursor: pointer;
+  }
+
+  .post p {
+    color: #777;
+    margin-top: 10px;
+  }
+
+  .post img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+
+  .filter-container {
+    margin-top: 20px;
+  }
+
+  .filter {
+    margin: 0 10px;
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .filter:hover {
+    background-color: #45a049;
+  }
+
+  .search-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+
+  .instruction {
+    color: #777;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Medical Posts</h1>
+<p class="instruction">Click on the title of each post to view more details</p>
+
+<div class="filter-container">
+  <input type="text" id="searchInput" class="search-input" placeholder="Search...">
+  <button class="filter" onclick="filterPosts()">Search</button>
+</div>
+
+<div class="post-container" id="post-container">
+  <!-- Medical posts will be dynamically added here -->
+</div>
+
+<script>
+  // Sample data for medical posts (replace with actual data)
+  let medicalPosts = [
+    { 
+      id: 1, 
+      patientName: 'John Doe', 
+      age: 45, 
+      gender: 'Male', 
+      weight: '70 kg', 
+      location: '../images/map 1.jpg', 
+      address: '123 Example St', 
+      organizationName: 'Medical Aid Organization', 
+      medicalSpecialty: 'Cardiology', 
+      caseDescription: 'Patient requires immediate attention due to chest pain.' 
+    },
+    { 
+      id: 2, 
+      patientName: 'Jane Smith', 
+      age: 30, 
+      gender: 'Female', 
+      weight: '65 kg', 
+      location: '../images/map 2.png', 
+      address: '456 Example Ave', 
+      organizationName: 'Healthcare for All', 
+      medicalSpecialty: 'Pediatrics', 
+      caseDescription: 'High fever and cough.' 
+    },
+    { 
+      id: 3, 
+      patientName: 'Michael Johnson', 
+      age: 50, 
+      gender: 'Male', 
+      weight: '80 kg', 
+      location: '../images/map 3.jpeg', 
+      address: '789 Example Rd', 
+      organizationName: 'Global Health Initiative', 
+      medicalSpecialty: 'Oncology', 
+      caseDescription: 'Cancer patient undergoing chemotherapy.' 
+    },
+    { 
+      id: 4, 
+      patientName: 'Emily White', 
+      age: 25, 
+      gender: 'Female', 
+      weight: '55 kg', 
+      location: '../images/map 1.jpg', 
+      address: '1010 Example Blvd', 
+      organizationName: 'Doctors Without Borders', 
+      medicalSpecialty: 'Emergency Medicine', 
+      caseDescription: 'Accident victim with multiple injuries.' 
+    },
+    { 
+      id: 5, 
+      patientName: 'David Brown', 
+      age: 35, 
+      gender: 'Male', 
+      weight: '75 kg', 
+      location: '../images/map 3.jpeg', 
+      address: '1111 Example Ln', 
+      organizationName: 'Red Cross', 
+      medicalSpecialty: 'Infectious Diseases', 
+      caseDescription: 'Patient with suspected case of tuberculosis.' 
+    },
+    // Add more medical posts
+  ];
+
+  // Function to display medical posts based on filters
+  function filterPosts() {
+    const searchInput = document.getElementById('searchInput').value.toLowerCase();
+    const filteredPosts = medicalPosts.filter(post =>
+      post.patientName.toLowerCase().includes(searchInput) ||
+      post.medicalSpecialty.toLowerCase().includes(searchInput) ||
+      post.organizationName.toLowerCase().includes(searchInput) ||
+      post.address.toLowerCase().includes(searchInput) ||
+      post.caseDescription.toLowerCase().includes(searchInput)
+    );
+    displayPosts(filteredPosts);
+  }
+
+  // Function to display medical posts
+  function displayPosts(posts) {
+    const container = document.getElementById('post-container');
+    container.innerHTML = '';
+
+    posts.forEach(post => {
+      const postElement = document.createElement('div');
+      postElement.classList.add('post');
+      postElement.innerHTML = `
+        <h2 onclick="toggleDetails(${post.id})">${post.patientName}</h2>
+        <div id="details-${post.id}" style="display: none;">
+          <p><strong>Age:</strong> ${post.age}</p>
+          <p><strong>Gender:</strong> ${post.gender}</p>
+          <p><strong>Weight:</strong> ${post.weight}</p>
+          <img src="${post.location}" alt="Location Map">
+          <p><strong>Address:</strong> ${post.address}</p>
+          <p><strong>Organization Name:</strong> ${post.organizationName}</p>
+          <p><strong>Medical Specialty:</strong> ${post.medicalSpecialty}</p>
+          <p><strong>Case Description:</strong> ${post.caseDescription}</p>
+          <button onclick="fulfillCase(${post.id})">Fulfill Case</button>
+        </div>
+      `;
+      container.appendChild(postElement);
+    });
+  }
+
+  // Function to toggle display of details
+  function toggleDetails(postId) {
+    const detailsDiv = document.getElementById(`details-${postId}`);
+    detailsDiv.style.display = detailsDiv.style.display === 'none' ? 'block' : 'none';
+  }
+
+  // Function to remove a post from the list
+  function removePost(postId) {
+    medicalPosts = medicalPosts.filter(post => post.id !== postId);
+    displayPosts(medicalPosts);
+  }
+
+  // Function to choose to fulfill a medical case
+  function fulfillCase(postId) {
+    removePost(postId);
+    // Display a thank you message for volunteering
+    alert('Thank you for volunteering!');
+  }
+
+  // Display all medical posts initially
+  displayPosts(medicalPosts);
+</script>
+
+</body>
+</html>

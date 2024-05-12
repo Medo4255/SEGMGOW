@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volunteer Sign-Up</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    text-align: center;
+  }
+
+  h1 {
+    color: #333;
+    margin-top: 50px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .volunteer-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 15px;
+  }
+
+  .volunteer-button:hover {
+    background-color: #45a049;
+  }
+</style>
+</head>
+<body>
+
+<h1>Choose Your Volunteer Role</h1>
+
+<div class="button-container">
+  <button class="volunteer-button" onclick="chooseRole('doctor')">Volunteer as Doctor</button>
+  <button class="volunteer-button" onclick="chooseRole('teacher')">Volunteer as Teacher</button>
+</div>
+
+<script>
+  function chooseRole(role) {
+    if (role === 'doctor') {
+      window.location.href = 'volunteer_doc.html';
+    } else if (role === 'teacher') {
+      window.location.href = 'volunteer_teacher.html';
+    }
+  }
+</script>
+
+</body>
+</html>

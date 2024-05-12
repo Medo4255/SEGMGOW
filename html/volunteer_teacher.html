@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volunteer as Teacher</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    text-align: center;
+  }
+
+  h1 {
+    color: #333;
+    margin-top: 20px;
+  }
+
+  .post-container {
+    margin-top: 20px;
+  }
+
+  .post {
+    width: 300px;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .post:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .post h2 {
+    color: #555;
+    cursor: pointer;
+  }
+
+  .post p {
+    color: #777;
+    margin-top: 10px;
+  }
+
+  .filter-container {
+    margin-top: 20px;
+  }
+
+  .filter {
+    margin: 0 10px;
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .filter:hover {
+    background-color: #45a049;
+  }
+
+  .search-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+
+  .instruction {
+    color: #777;
+    margin-top: 10px;
+  }
+
+  .fulfill-button {
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<h1>Teaching Posts</h1>
+<p class="instruction">Click on the title of each post to view more details</p>
+
+<div class="filter-container">
+  <input type="text" id="searchInput" class="search-input" placeholder="Search...">
+  <button class="filter" onclick="filterPosts()">Search</button>
+</div>
+
+<div class="post-container" id="post-container">
+  <!-- Teaching posts will be dynamically added here -->
+</div>
+
+<script>
+  // Sample data for teaching posts (replace with actual data)
+  let teachingPosts = [
+    { id: 1, subject: 'Math', area: 'Urban', governorate: 'Cairo', students: 30, address: '123 Example St', latitude: 123.456, longitude: -78.901 },
+    { id: 2, subject: 'Science', area: 'Rural', governorate: 'Suez', students: 25, address: '456 Example Ave', latitude: 12.345, longitude: -67.890 },
+    { id: 3, subject: 'English', area: 'Suburban', governorate: 'Giza', students: 20, address: '789 Example Rd', latitude: 34.567, longitude: -56.789 },
+    { id: 4, subject: 'History', area: 'Urban', governorate: 'Giza', students: 35, address: '321 Another St', latitude: 45.678, longitude: -45.678 },
+    { id: 5, subject: 'Geography', area: 'Rural', governorate: 'Cairo', students: 22, address: '654 Another Ave', latitude: 56.789, longitude: -34.567 },
+    { id: 6, subject: 'Physics', area: 'Suburban', governorate: 'Cairo', students: 28, address: '987 Another Rd', latitude: 67.890, longitude: -23.456 },
+    // Add more teaching posts
+  ];
+
+  // Function to display teaching posts based on filters
+  function filterPosts() {
+    const searchInput = document.getElementById('searchInput').value.toLowerCase();
+    const filteredPosts = teachingPosts.filter(post =>
+      post.subject.toLowerCase().includes(searchInput) ||
+      post.area.toLowerCase().includes(searchInput) ||
+      post.governorate.toLowerCase().includes(searchInput) ||
+      post.address.toLowerCase().includes(searchInput) ||
+      post.students.toString().includes(searchInput)
+    );
+    displayPosts(filteredPosts);
+  }
+
+  // Function to display teaching posts
+  function displayPosts(posts) {
+    const container = document.getElementById('post-container');
+    container.innerHTML = '';
+
+    posts.forEach(post => {
+      const postElement = document.createElement('div');
+      postElement.classList.add('post');
+      postElement.innerHTML = `
+        <h2 onclick="toggleDetails(${post.id}, event)">${post.subject}</h2>
+        <div id="details-${post.id}" style="display: none;">
+          <p><strong>Area:</strong> ${post.area}</p>
+          <p><strong>Governorate:</strong> ${post.governorate}</p>
+          <p><strong>Number of Students:</strong> ${post.students}</p>
+          <p><strong>Address:</strong> ${post.address}</p>
+          <button onclick="fulfillCase(${post.id})">Fulfill Case</button>
+        </div>
+      `;
+      container.appendChild(postElement);
+    });
+  }
+
+  // Function to toggle display of details and the fulfill button
+  function toggleDetails(postId, event) {
+    const detailsDiv = document.getElementById(`details-${postId}`);
+    detailsDiv.style.display = detailsDiv.style.display === 'none' ? 'block' : 'none';
+  }
+
+  // Function to remove a post from the list
+  function removePost(postId) {
+    teachingPosts = teachingPosts.filter(post => post.id !== postId);
+    displayPosts(teachingPosts);
+  }
+
+  // Function to choose to fulfill a teaching case
+  function fulfillCase(postId) {
+    removePost(postId);
+    // Display a thank you message for volunteering
+    alert('Thank you for volunteering!');
+  }
+
+  // Display all teaching posts initially
+  displayPosts(teachingPosts);
+</script>
+
+</body>
+</html>
