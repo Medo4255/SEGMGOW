@@ -3,9 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Organization Representative Dashboard</title>
+    <link rel="stylesheet" href="../css/stylesOrg.css">
 </head>
 <body>
-    <h1> Bta3 Aboel3la, m7dsh ye2arab !!</h1>
+    <div class="container">
+        <h1>Organization Representative Dashboard</h1>
+        
+        <!-- Registration Form -->
+        <div class="section">
+            <h2>1. Registration</h2>
+            <form id="registrationForm">
+                <label for="orgName">Organization Name:</label>
+                <input type="text" id="orgName" name="orgName" required><br><br>
+                <label for="orgEmail">Organization Email:</label>
+                <input type="email" id="orgEmail" name="orgEmail" required><br><br>
+                <label for="orgDocs">Upload Documents:</label>
+                <input type="file" id="orgDocs" name="orgDocs" accept=".pdf, .doc, .docx" required><br><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <!-- Donation Posts Submission -->
+        <div class="section">
+            <h2>2. Submission of Donation Posts</h2>
+            <form id="donationPostForm">
+                <label for="itemCategory">Item Category:</label>
+                <select id="itemCategory" name="itemCategory" required>
+                    <option value="">Select Category</option>
+                    <option value="Clothing">Clothing</option>
+                    <option value="Food">Food</option>
+                    <option value="Books">Books</option>
+                    <!-- Add more categories as needed -->
+                </select><br><br>
+                <label for="details">Details:</label><br>
+                <textarea id="details" name="details" rows="4" cols="50" required></textarea><br><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <!-- Receive Notification for Chosen Donation Posts -->
+        <div class="section">
+            <h2>3. Receive Notification for Chosen Donation Posts</h2>
+            <!-- Notification display area -->
+            <div id="notification"></div>
+        </div>
+
+        <!-- View Details of Fulfilled Donation Posts -->
+        <div class="section">
+            <h2>4. View Details of Fulfilled Donation Posts</h2>
+            <!-- Fulfilled donation posts list -->
+            <ul id="fulfilledPostsList"></ul>
+        </div>
+
+        <!-- Delete Fulfilled Donation Posts -->
+        <div class="section">
+            <h2>5. Delete Fulfilled Donation Posts</h2>
+            <!-- Delete button for each fulfilled post -->
+            <button id="deletePostBtn">Delete Post</button>
+        </div>
+
+        <!-- View Donor Details for Fulfilled Posts -->
+        <div class="section">
+            <h2>6. View Donor Details for Fulfilled Posts</h2>
+            <!-- Donor details display area -->
+            <div id="donorDetails"></div>
+        </div>
+    </div>
+
+    <script src="scriptOrg.js"></script>
 </body>
 </html>
