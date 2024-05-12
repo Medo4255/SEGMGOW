@@ -113,11 +113,16 @@
 
         // Function to delete account
         function deleteAccount() {
-            // You can implement delete functionality here
-            // For example, you can redirect to a delete confirmation page
-            // or send a request to a server to delete the account
-            alert('Delete functionality has not been implemented yet.');
+            if (confirm("Are you sure you want to delete your account?")) {
+                // Perform delete action here
+                // For demonstration purposes, let's clear the account data
+                accountData = {};
+                // Display success message or redirect to confirmation page
+                alert("Your account has been deleted.");
+                // Redirect to confirmation page or any other action
+                // window.location.href = "delete_confirmation.html";
         }
+    }
     </script>
 </body>
 </html>
