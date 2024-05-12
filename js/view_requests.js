@@ -308,6 +308,15 @@
                     requestDiv.appendChild(thankYouMessage);
                     // Clear input after donation
                     quantityInput.value = "";
+                    let seconds = 3;
+                    const timer = setInterval(() => {
+                        seconds--;
+                        thankYouMessage.textContent = `Thank you for your donation! Redirecting in ${seconds} seconds...`;
+                        if (seconds === 0) {
+                            clearInterval(timer);
+                            window.location.href = '../html/donation_details.html';
+                        }
+                    }, 1000);
                 } else {
                     if (quantity > request.quantity) {
                         alert("Cannot donate more than the available quantity.");

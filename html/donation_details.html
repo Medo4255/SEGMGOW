@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donation Pickup</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+    text-align: center;
+  }
+
+  h1 {
+    color: #333;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  select {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+
+  #countdown {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Donation Pickup</h1>
+  <div id="message"> </div>
+  <form onsubmit="return schedulePickup()">
+    <label for="transport">Select Transportation:</label>
+    <select id="transport">
+      <option value="truck">Truck</option>
+      <option value="car">Car</option>
+      <option value="motorcycle">Motorcycle</option>
+    </select>
+
+    <label for="schedule">Select Pickup Time Slot:</label>
+    <select id="schedule">
+      <option value="morning">Morning (8:00 AM - 12:00 PM)</option>
+      <option value="afternoon">Afternoon (12:00 PM - 4:00 PM)</option>
+      <option value="evening">Evening (4:00 PM - 8:00 PM)</option>
+    </select>
+
+    <button type="submit">Schedule Pickup</button>
+  </form>
+  <div id="countdown"></div>
+</div>
+
+<script>
+  function schedulePickup() {
+    // Hide form
+    document.querySelector('form').style.display = 'none';
+    // Show success message
+    document.getElementById('message').innerHTML = "Donation pickup scheduled successfully!";
+    // Start countdown timer
+    var count = 5;
+    var countdown = document.getElementById('countdown');
+    var timer = setInterval(function() {
+      countdown.innerHTML = "Redirecting in " + count + " seconds...";
+      count--;
+      if (count === 0) {
+        clearInterval(timer);
+        window.location.href = "../html/driver_eta.html";
+      }
+    }, 1000);
+    // Prevent form from submitting
+    return false;
+  }
+</script>
+
+</body>
+</html>
