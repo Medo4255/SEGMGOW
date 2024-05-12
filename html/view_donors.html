@@ -446,13 +446,12 @@
         }
 
         .delete-btn {
-            margin-left: 140px;
-            padding: 15px;
+          padding: 10px 20px;
             background-color: #f44336;
             color: white;
             font-size: 20px;
             border: none;
-            border-radius: 8px;
+            border-radius: 4px;
             cursor: pointer;
             align-items: center;
         }
@@ -460,6 +459,22 @@
         .delete-btn:hover {
             background-color: #da190b;
         }
+
+        .download-btn {
+            padding: 10px 20px;
+            background-color: #662ab0;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background-color: rgb(89, 25, 138);
+        }
+
+
   </style>
 </head> 
 
@@ -506,8 +521,8 @@
                     <td>john@example.com</td>
                     <td>1234567890</td>
                     <td>Doctor</td>
-                    <td><button onclick="confirmDelete(this)">Delete</button></td>
-                    <td><button onclick="downloadData(this)">Download</button></td>
+                    <td><button class = "delete-btn" onclick="confirmDelete(this)">Delete</button></td>
+                    <td><button class = "download-btn" onclick="downloadData(this)">Download</button></td>
                 </tr>
                 <!-- Additional dummy donor data -->
                 <tr>
@@ -515,88 +530,88 @@
                     <td>jane@example.com</td>
                     <td>9876543210</td>
                     <td>Teacher</td>
-                    <td><button onclick="confirmDelete(this)">Delete</button></td>
-                    <td><button onclick="downloadData(this)">Download</button></td>
+                    <td><button class = "delete-btn" onclick="confirmDelete(this)">Delete</button></td>
+                    <td><button class = "download-btn" onclick="downloadData(this)">Download</button></td>
                 </tr>
                 <tr>
                     <td>Michael Johnson</td>
                     <td>michael@example.com</td>
                     <td>5678901234</td>
                     <td>Doctor</td>
-                    <td><button onclick="confirmDelete(this)">Delete</button></td>
-                    <td><button onclick="downloadData(this)">Download</button></td>
+                    <td><button class = "delete-btn" onclick="confirmDelete(this)">Delete</button></td>
+                    <td><button class = "download-btn" onclick="downloadData(this)">Download</button></td>
                 </tr>
                 <tr>
                     <td>Emily Davis</td>
                     <td>emily@example.com</td>
                     <td>1231234567</td>
                     <td>Teacher</td>
-                    <td><button onclick="confirmDelete(this)">Delete</button></td>
-                    <td><button onclick="downloadData(this)">Download</button></td>
+                    <td><button class = "delete-btn" onclick="confirmDelete(this)">Delete</button></td>
+                    <td><button class = "download-btn" onclick="downloadData(this)">Download</button></td>
                 </tr>
                 <tr>
                     <td>David White</td>
                     <td>david@example.com</td>
                     <td>9876543210</td>
                     <td>Doctor</td>
-                    <td><button onclick="confirmDelete(this)">Delete</button></td>
-                    <td><button onclick="downloadData(this)">Download</button></td>
+                    <td><button class = "delete-btn" onclick="confirmDelete(this)">Delete</button></td>
+                    <td><button class = "download-btn" onclick="downloadData(this)">Download</button></td>
                 </tr>
                 <tr>
                     <td>Laura Wilson</td>
                     <td>laura@example.com</td>
                     <td>1234567890</td>
                     <td>Teacher</td>
-                    <td><button onclick="confirmDelete(this)">Delete</button></td>
-                    <td><button onclick="downloadData(this)">Download</button></td>
+                    <td><button class = "delete-btn" onclick="confirmDelete(this)">Delete</button></td>
+                    <td><button class = "download-btn" onclick="downloadData(this)">Download</button></td>
                 </tr>
                 <tr>
                     <td>William Johnson</td>
                     <td>william@example.com</td>
                     <td>5678901234</td>
                     <td>Doctor</td>
-                    <td><button onclick="confirmDelete(this)">Delete</button></td>
-                    <td><button onclick="downloadData(this)">Download</button></td>
+                    <td><button class = "delete-btn" onclick="confirmDelete(this)">Delete</button></td>
+                    <td><button class = "download-btn" onclick="downloadData(this)">Download</button></td>
                 </tr>
                 <tr>
                     <td>Sarah Lee</td>
                     <td>sarah@example.com</td>
                     <td>1231234567</td>
                     <td>Teacher</td>
-                    <td><button onclick="confirmDelete(this)">Delete</button></td>
-                    <td><button onclick="downloadData(this)">Download</button></td>
+                    <td><button class = "delete-btn" onclick="confirmDelete(this)">Delete</button></td>
+                    <td><button class = "download-btn" onclick="downloadData(this)">Download</button></td>
                 </tr>
                 <tr>
                     <td>Matthew Taylor</td>
                     <td>matthew@example.com</td>
                     <td>9876543210</td>
                     <td>Doctor</td>
-                    <td><button onclick="confirmDelete(this)">Delete</button></td>
-                    <td><button onclick="downloadData(this)">Download</button></td>
+                    <td><button class = "delete-btn" onclick="confirmDelete(this)">Delete</button></td>
+                    <td><button class = "download-btn" onclick="downloadData(this)">Download</button></td>
                 </tr>
                 <tr>
                     <td>Emma Brown</td>
                     <td>emma@example.com</td>
                     <td>1234567890</td>
                     <td>Teacher</td>
-                    <td><button onclick="confirmDelete(this)">Delete</button></td>
-                    <td><button onclick="downloadData(this)">Download</button></td>
+                    <td><button class = "delete-btn" onclick="confirmDelete(this)">Delete</button></td>
+                    <td><button class = "download-btn" onclick="downloadData(this)">Download</button></td>
                 </tr>
                 <tr>
                     <td>Alexander Garcia</td>
                     <td>alexander@example.com</td>
                     <td>5678901234</td>
                     <td>Doctor</td>
-                    <td><button onclick="confirmDelete(this)">Delete</button></td>
-                    <td><button onclick="downloadData(this)">Download</button></td>
+                    <td><button class = "delete-btn" onclick="confirmDelete(this)">Delete</button></td>
+                    <td><button class = "download-btn" onclick="downloadData(this)">Download</button></td>
                 </tr>
                 <tr>
                     <td>Sophia Martinez</td>
                     <td>sophia@example.com</td>
                     <td>1231234567</td>
                     <td>Teacher</td>
-                    <td><button onclick="confirmDelete(this)">Delete</button></td>
-                    <td><button onclick="downloadData(this)">Download</button></td>
+                    <td><button class = "delete-btn" onclick="confirmDelete(this)">Delete</button></td>
+                    <td><button class = "download-btn" onclick="downloadData(this)">Download</button></td>
                 </tr>
             </tbody>
         </table>
