@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- <head>
+ <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donors List</title>
+  <link rel="stylesheet" href="../css/stylesVD.css">
   <style>
   
   
+ 
   body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f9f7f7;
@@ -339,21 +343,134 @@
 
 
 
+ 
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            margin-top: 100px;
+            margin-bottom: 50px;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        li:hover {
+            background-color: #e0e0e0;
+        }
+
+        .filter-btn {
+            display: block;
+            width: 100%;
+            font-size: 20px;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #17a2b8;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            background-color: #17a2b8;
+        }
+
+        .filter-input {
+            width: calc(100% - 40px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #organization-details {
+            margin-top: 20px;
+            display: none;
+        }
+
+        #organization-details p {
+            margin: 5px 0;
+        }
+
+        .toggle-btn {
+            margin-bottom: 20px;
+        }
+
+        .toggle-btn button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            font-size: 20px;
+            background-color: #fff;
+            color: #333;
+            border-style: double;
+            border-color: #0f5b67;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .toggle-btn button.active {
+          font-size: 20px;
+            background-color: #17a2b8;
+            color: #fff;
+        }
+
+        .location {
+            display: block;
+            margin-top: 20px;
+            margin-bottom: 30px ;
+            margin-left: 100px;
+            width: 300px;
+        }
+
+        .delete-btn {
+            margin-left: 140px;
+            padding: 15px;
+            background-color: #f44336;
+            color: white;
+            font-size: 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            align-items: center;
+        }
+
+        .delete-btn:hover {
+            background-color: #da190b;
+        }
   </style>
-</head> -->
+</head> 
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donors List</title>
-    <link rel="stylesheet" href="../css/stylesVD.css">
-</head>
 
-<!-- <header class="sticky-header">
+
+<header class="sticky-header">
   <div class="header-content">
     <img src="../images/kratos-logo4.png" alt="Your Company Logo" class="logo">
     <h1 class="website-name">SEGMGOW Charity</h1>
     <nav class="header-links">
+      <a style="margin-left: -10px;" href="admin.html"><i class="fa fa-arrow-left" aria-hidden="true" style="margin-right: 15px;"></i>Return</a>
       <span class="separator"></span>
       <a href="Home.html">Home</a>
       <span class="separator"></span>
@@ -366,7 +483,7 @@
       <a href="settings.html" style="margin-left: -10px;"><i class="fa fa-cog" aria-hidden="true"></i></a>
     </nav>
   </div>
-</header> -->
+</header> 
 
 <body>
     <div class="container">

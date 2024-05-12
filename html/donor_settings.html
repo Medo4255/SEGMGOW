@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Information</title>
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="../css/stylesDonations.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Account Information</h1>
+        
+        <!-- Account Information Form -->
+        <form id="accountForm" onsubmit="updateAccount(event)">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required value="John"><br><br>
+            
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required value="Doe"><br><br>
+            
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select><br><br>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required value="john.doe@example.com"><br><br>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required value="********"><br><br>
+            
+            <label for="contactNumber">Contact Number:</label>
+            <input type="text" id="contactNumber" name="contactNumber" required value="1234567890"><br><br>
+                       
+            <label for="area">Area:</label>
+            <input type="text" id="area" name="area" required value="Downtown"><br><br>
+            
+            <label for="governorate">Governorate:</label>
+            <input type="text" id="governorate" name="governorate" required value="New York"><br><br>
+            
+            <button type="submit">Update</button>
+            <button type="button" onclick="deleteAccount()">Delete</button>
+        </form>
+    </div>
+
+    <!-- Link to your JavaScript file -->
+    <script src="script.js"></script>
+
+    <script>
+        // Dummy data for account information
+        let accountData = {
+            firstName: "John",
+            lastName: "Doe",
+            gender: "Male",
+            email: "john.doe@example.com",
+            password: "********",
+            contactNumber: "1234567890",
+            area: "Downtown",
+            governorate: "New York"
+        };
+
+        // Function to update account information
+        function updateAccount(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Update the account data object with new values from the form
+            accountData = {
+                firstName: document.getElementById("firstName").value,
+                lastName: document.getElementById("lastName").value,
+                gender: document.getElementById("gender").value,
+                email: document.getElementById("email").value,
+                password: document.getElementById("password").value,
+                contactNumber: document.getElementById("contactNumber").value,
+                area: document.getElementById("area").value,
+                governorate: document.getElementById("governorate").value
+            };
+
+            // Display success message
+            const successMessage = document.createElement('div');
+            successMessage.classList.add('success-message');
+            successMessage.textContent = 'Account information updated successfully!';
+            document.body.appendChild(successMessage);
+
+            // Add fading animation
+            setTimeout(() => {
+                successMessage.style.opacity = '0';
+                successMessage.style.transform = 'translateY(50px)'; // Move the message upward
+            }, 3000); // Adjust duration as needed
+
+            // Remove message from DOM after animation completes
+            setTimeout(() => {
+                successMessage.remove();
+            }, 4000); // Adjust duration to match animation duration + delay
+        }
+
+        // Function to delete account
+        function deleteAccount() {
+            if (confirm("Are you sure you want to delete your account?")) {
+                // Perform delete action here
+                // For demonstration purposes, let's clear the account data
+                accountData = {};
+                // Display success message or redirect to confirmation page
+                alert("Your account has been deleted.");
+                // Redirect to confirmation page or any other action
+                 window.location.href = "Home.html";
+        }
+    }
+    </script>
+</body>
+</html>
