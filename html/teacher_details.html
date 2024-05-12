@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject and Class Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="number"] {
+            padding: 8px;
+            width: 100px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        select {
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            height: 200px; /* Increase height for easier selection */
+            width: 200px; /* Increase width for easier selection */
+            overflow-y: scroll; /* Add scrollbars if necessary */
+            resize: vertical; /* Allow vertical resizing */
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .info-message {
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Subject and Class Selection</h2>
+        <div class="info-message">Click and drag to select multiple subjects</div>
+        <form id="donorForm">
+            <label for="subjects">Select Subjects:</label>
+            <select id="subjects" name="subjects" multiple required>
+                <option value="Math">Math</option>
+                <option value="Science">Science</option>
+                <option value="English">English</option>
+                <option value="History">History</option>
+                <!-- Add more subjects here -->
+            </select>
+
+            <label for="class">Number of Pro-bono Classes or Private Tutoring Sessions:</label>
+            <input type="number" id="class" name="class" min="1" required>
+
+            <button id="submitButton" type="submit">Submit</button>
+            <p id="errorMessage" class="error-message" style="display: none;">Please fill out all fields.</p>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('donorForm');
+        const submitButton = document.getElementById('submitButton');
+        const errorMessage = document.getElementById('errorMessage');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission behavior
+
+            if (form.checkValidity()) {
+                submitForm();
+            } else {
+                errorMessage.style.display = 'block';
+            }
+        });
+
+        function submitForm() {
+            const selectedSubjects = Array.from(document.getElementById('subjects').selectedOptions).map(option => option.value);
+            const classes = document.getElementById('class').value;
+            
+            // Here you can perform further processing like sending the data to a server or saving it locally
+            
+            // Display success message
+            const message = document.createElement('p');
+            message.textContent = `Submission successful. Redirecting in 5 seconds...`;
+            document.body.appendChild(message);
+
+            // Countdown timer
+            let seconds = 5;
+            const timer = setInterval(() => {
+                seconds--;
+                message.textContent = `Submission successful. Redirecting in ${seconds} seconds...`;
+                if (seconds === 0) {
+                    clearInterval(timer);
+                    window.location.href = '../html/donor.html';
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
