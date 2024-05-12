@@ -9,10 +9,31 @@ document.addEventListener('DOMContentLoaded', () => {
         const details = form.querySelector('#details').value;
         const image = form.querySelector('#image').files[0]; // Get the selected image file
 
-        // Process form data (e.g., submit it to server or perform validation)
-        // Here, you can send the form data to your backend using AJAX or fetch API
-        
-        // Reset form after submission
-        form.reset();
+        // Simulate submission confirmation
+        const isConfirmed = confirm('Are you sure you want to submit this donation post?');
+
+        if (isConfirmed) {
+            // Display success message
+            const successMessage = document.createElement('div');
+            successMessage.classList.add('success-message');
+            successMessage.textContent = 'Donation post submitted successfully!';
+            document.body.appendChild(successMessage);
+
+            // Add fading animation
+            setTimeout(() => {
+                successMessage.style.opacity = '0';
+                successMessage.style.transform = 'translateY(50px)'; // Move the message upward
+            }, 3000); // Adjust duration as needed
+
+            // Remove message from DOM after animation completes
+            setTimeout(() => {
+                successMessage.remove();
+            }, 4000); // Adjust duration to match animation duration + delay
+
+            // Redirect after animation ends
+            setTimeout(() => {
+                window.location.href = 'org.html';
+            }, 4000); // Adjust duration to match animation duration + delay
+        }
     });
 });
