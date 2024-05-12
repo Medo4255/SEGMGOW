@@ -394,6 +394,7 @@
   </div>
 </header>
 
+
 <div class="button-container">
   <button id="viewOrgsBtn" class="btn-1">
     <i class="fa fa-eye" style="margin-bottom: 5px;"></i>
@@ -401,7 +402,9 @@
     <div class="description">
       <p>This button allows you to view a list of organizations.</p>
     </div>
+
   </button>
+  
   <button id="viewDonorsBtn" class="btn-1">
     <i class="fa fa-heart" style="margin-bottom: 5px;"></i>
     <div class="button-content">View Donors</div>
@@ -416,6 +419,13 @@
       <p>This button allows you to review and manage submissions.</p>
     </div>
   </button>
+  <button id="changepsBtn" class="btn-1">
+  <i class="fa fa-check-square " style="margin-bottom: 5px;"></i>
+    <div class="button-content">Change Password</div>
+    <div class="description">
+      <p>This button allows you to change password</p>
+      </div>
+    </button>
 </div>
 <body>
 
@@ -439,6 +449,7 @@
   const viewOrgsBtn = document.getElementById('viewOrgsBtn');
 const viewDonorsBtn = document.getElementById('viewDonorsBtn');
 const reviewSubmissionsBtn = document.getElementById('reviewSubmissionsBtn');
+const changepsBtn = document.getElementById('changepsBtn');
 
 viewOrgsBtn.addEventListener('click', () => {
   window.location.href = 'view_orgs.html';
@@ -450,6 +461,10 @@ viewDonorsBtn.addEventListener('click', () => {
 
 reviewSubmissionsBtn.addEventListener('click', () => {
   window.location.href = 'submission_review.html';
+});
+
+changepsBtn.addEventListener('click', () => {
+  window.location.href = 'change_password.html';
 });</script>
 
 </html>
