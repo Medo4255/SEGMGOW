@@ -75,10 +75,15 @@
         .request-title {
             font-size: 20px;
             margin-bottom: 10px;
+            cursor: pointer; /* Add cursor pointer for click */
         }
         .request-details {
             font-size: 16px;
             color: #666;
+            display: none; /* Hide details by default */
+        }
+        .request-details.visible {
+            display: block; /* Show details when visible class is applied */
         }
         .search-container {
             text-align: center;
@@ -136,109 +141,6 @@
         </div>
     </div>
 
-    <script>
-        // Dummy data for requests
-        const requests = {
-            Clothes: [
-                { title: "Request 1: Clothes for Children", organization: "ABC Orphanage", details: "Need clothes for children aged 5-10 years." },
-                { title: "Request 2: Warm Jackets", organization: "XYZ Shelter", details: "Seeking warm jackets for homeless individuals." },
-                { title: "Request 3: Summer Clothes", organization: "Community Center", details: "Collecting summer clothes for families in need." },
-                // Add more clothes requests here
-            ],
-            Toys: [
-                { title: "Request 1: Educational Toys", organization: "XYZ School", details: "Seeking donations of educational toys for students." },
-                { title: "Request 2: Outdoor Games", organization: "Community Recreation Center", details: "Need outdoor games for children's summer program." },
-                { title: "Request 3: Puzzles and Board Games", organization: "Local Library", details: "Requesting puzzles and board games for youth club." },
-                // Add more toys requests here
-            ],
-            Food: [
-                { title: "Request 1: Non-perishable Food Items", organization: "Community Food Bank", details: "Urgently need non-perishable food items for food drive." },
-                { title: "Request 2: Fresh Produce", organization: "Farmers Market", details: "Seeking donations of fresh fruits and vegetables." },
-                { title: "Request 3: Canned Goods", organization: "Local Church", details: "Collecting canned goods for holiday food baskets." },
-                // Add more food requests here
-            ],
-            Medical: [
-                { title: "Request 1: PPE Kits", organization: "ABC Hospital", details: "Need PPE kits for healthcare workers." },
-                { title: "Request 2: Medical Supplies", organization: "Red Cross", details: "Seeking urgent donations of medical supplies for disaster relief efforts." },
-                { title: "Request 3: First Aid Kits", organization: "Community Health Clinic", details: "Requesting first aid kits for outreach program." },
-                // Add more medical supplies requests here
-            ],
-            School: [
-                { title: "Request 1: Notebooks and Stationery", organization: "XYZ School", details: "Require notebooks and stationery items for students." },
-                { title: "Request 2: Backpacks", organization: "Local Charity", details: "Seeking donations of backpacks for back-to-school drive." },
-                { title: "Request 3: Art Supplies", organization: "Children's Art Center", details: "Collecting art supplies for after-school program." },
-                // Add more school supplies requests here
-            ],
-            Blood: [
-                { title: "Request 1: Blood Donation Drive", organization: "ABC Blood Bank", details: "Organizing a blood donation drive. Volunteers needed." },
-                { title: "Request 2: Plasma Donations", organization: "Local Hospital", details: "Seeking plasma donations for patients in need." },
-                { title: "Request 3: Platelet Donations", organization: "Blood Services Center", details: "Requesting platelet donations for cancer patients." },
-                // Add more blood donation requests here
-            ]
-        };
-
-
-        // Function to show requests based on category
-        function showCategory(category) {
-            document.getElementById("selectedCategoryBtn").textContent = category === "all" ? "Select Category" : category;
-            const container = document.getElementById("requests-container");
-            container.innerHTML = ""; // Clear previous requests
-
-            if (category === "all") {
-                Object.values(requests).forEach(categoryRequests => {
-                    categoryRequests.forEach(request => {
-                        addRequestToContainer(request, container);
-                    });
-                });
-            } else {
-                const categoryRequests = requests[category];
-                categoryRequests.forEach(request => {
-                    addRequestToContainer(request, container);
-                });
-            }
-        }
-
-        // Function to add a request to the container
-        function addRequestToContainer(request, container) {
-            const requestDiv = document.createElement("div");
-            requestDiv.classList.add("request");
-
-            const title = document.createElement("h2");
-            title.classList.add("request-title");
-            title.textContent = request.title;
-
-            const orgDetails = document.createElement("p");
-            orgDetails.classList.add("request-details");
-            orgDetails.textContent = `Organization: ${request.organization}`;
-
-            const requestDetails = document.createElement("p");
-            requestDetails.classList.add("request-details");
-            requestDetails.textContent = `Request Details: ${request.details}`;
-
-            requestDiv.appendChild(title);
-            requestDiv.appendChild(orgDetails);
-            requestDiv.appendChild(requestDetails);
-
-            container.appendChild(requestDiv);
-        }
-
-        // Function to search requests
-        function searchRequests() {
-            const searchInput = document.getElementById("searchInput").value.toLowerCase();
-            const container = document.getElementById("requests-container");
-            container.innerHTML = ""; // Clear previous requests
-
-            Object.values(requests).forEach(categoryRequests => {
-                categoryRequests.forEach(request => {
-                    if (request.title.toLowerCase().includes(searchInput) || request.organization.toLowerCase().includes(searchInput) || request.details.toLowerCase().includes(searchInput)) {
-                        addRequestToContainer(request, container);
-                    }
-                });
-            });
-        }
-
-        // Show all requests initially
-        showCategory("all");
-    </script>
+    <script src="../js/view_requests.js"></script>
 </body>
 </html>
