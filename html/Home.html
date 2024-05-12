@@ -43,10 +43,13 @@
     transition: background-color 0.3s ease;
 }
 
-  .website-name {
-    font-size: 20px; /* Adjust font size */
-    margin-right: auto; /* Pushes the nav links to the right */
-  }
+.website-name {
+  font-size: 25px;
+  margin-bottom: 8px;
+  margin-right: auto;
+  text-decoration: none;
+  color: #333333; /* Change this to #ddd for dark mode */
+}
 
   .header-content {
     display: flex;
@@ -95,6 +98,12 @@
     border: 1px solid #6a7c8e;
     margin: 10px; /* Adjust spacing */
   }
+
+  
+
+#account-link:hover .tooltip {
+  display: block;
+}
 
   .content {
     margin-top: 30px; /* Adjust this value based on your header height */
@@ -477,7 +486,7 @@
 <header class="sticky-header">
   <div class="header-content">
     <img src="../images/kratos-logo4.png" alt="Your Company Logo" class="logo">
-    <h1 class="website-name">SEGMGOW Charity</h1>
+    <a href="Home.html" class="website-name">SEGMGOW Charity</a>
     <nav class="header-links">
       <span class="separator"></span>
       <a href="#" class="Home-link">Home</a>
