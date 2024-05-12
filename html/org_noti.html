@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donation Drop-off Scheduler</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+    text-align: center;
+  }
+
+  h1 {
+    color: #333;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  p {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+
+  .notification {
+    font-weight: bold;
+    color: #4CAF50;
+    margin-top: 20px;
+  }
+
+  progress {
+    width: 100%;
+    height: 20px;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Request Drop-off Scheduler</h1>
+  <p id="schedule">Scheduled Drop-off Time: <span class="notification" id="schedule-time"></span></p>
+  <p id="notification-text"></p>
+  <progress id="progress-bar" max="60" value="0"></progress>
+</div>
+
+<script>
+  // Function to send notification
+  function sendNotification(message) {
+    if (!("Notification" in window)) {
+      alert("This browser does not support desktop notification");
+    } else if (Notification.permission === "granted") {
+      new Notification(message);
+    } else if (Notification.permission !== "denied") {
+      Notification.requestPermission().then(function (permission) {
+        if (permission === "granted") {
+          new Notification(message);
+        }
+      });
+    }
+  }
+
+  // Function to update drop-off schedule and send notifications
+  function updateSchedule() {
+    // Get scheduled time from URL parameter
+    var urlParams = new URLSearchParams(window.location.search);
+    var scheduledTime = urlParams.get('time');
+    // Update schedule time on the page
+    document.getElementById('schedule-time').textContent = scheduledTime;
+    document.getElementById('notification-text').textContent = "Waiting for request fulfillment. You'll receive a notification once a request is fulfilled.";
+    // Set random timeout to send first notification when schedule is reached
+    var randomTimeout1 = Math.floor(Math.random() * (30000 - 10000 + 1)) + 10000; // Random value between 10 and 30 seconds
+    setTimeout(function() {
+      // Inform user that they are waiting for the request to be fulfilled
+      sendNotification("A request has been fulfilled!");
+    }, randomTimeout1);
+  }
+
+  // Function to start progress bar and timer
+  function startProgressBarAndTimer() {
+    var progressBar = document.getElementById('progress-bar');
+    var currentValue = 0;
+    var interval = setInterval(function() {
+      currentValue++;
+      progressBar.value = currentValue;
+      if (currentValue >= 60) {
+        clearInterval(interval);
+        document.getElementById('notification-text').textContent = "Driver ETA is indicated by the progress bar. You'll receive a notification once the items are dropped off.";
+        sendNotification("Driver has dropped off requested items.");
+      }
+    }, 1000);
+  }
+
+  // Call updateSchedule function on page load
+  updateSchedule();
+  // Start progress bar and timer
+  startProgressBarAndTimer();
+</script>
+
+</body>
+</html>
