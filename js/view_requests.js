@@ -10,12 +10,12 @@
             Toys: [
             { 
                 cat: "Toys",
-                title: "Educational Toys for Toddlers", 
+                title: "Toys for Toddlers", 
                 organization: "ABC Daycare", 
                 type: "Toy", 
                 age: "Toddlers (1-3 years)", 
                 gender: "Any", 
-                category: "Educational", 
+                category: "Stuffed Toys", 
                 picture: "educational_toy.jpg", 
                 quantity: 20 
             },
@@ -32,12 +32,12 @@
             },
             { 
                 cat: "Toys",
-                title: "Building Blocks for Preschoolers", 
+                title: "Board Games for Preschoolers", 
                 organization: "Community Center", 
                 type: "Toy", 
                 age: "Preschoolers (3-5 years)", 
                 gender: "Any", 
-                category: "Building Blocks", 
+                category: "Board Games", 
                 picture: "building_blocks_toy.jpg", 
                 quantity: 25 
             }               
@@ -49,7 +49,7 @@
                 cat: "Food",
                 title: "Non-perishable Food Items", 
                 organization: "Community Food Bank", 
-                itemName: "Non-perishable Food Items", 
+                itemName: "Canned Food", 
                 quantity: "100" 
             },
             { 
@@ -61,9 +61,9 @@
             },
             { 
                 cat: "Food",
-                title: "Canned Goods", 
-                organization: "Local Church", 
-                itemName: "Canned Goods", 
+                title: "Baked Goods", 
+                organization: "Local Mosque", 
+                itemName: "Baked Goods", 
                 quantity: "200" 
             }                
             // Add more food requests here
@@ -166,7 +166,8 @@
                 hospitalName: "ABC Hospital", 
                 hospitalArea: "Downtown", 
                 hospitalGovernorate: "New York", 
-                hospitalAddress: "123 Main Street, Downtown, New York" 
+                hospitalAddress: "123 Main Street, Downtown, New York",
+                Location: "../images/map 1.jpg"
             },
             { 
                 cat: "Blood",
@@ -177,7 +178,8 @@
                 hospitalName: "XYZ Medical Center", 
                 hospitalArea: "Uptown", 
                 hospitalGovernorate: "New York", 
-                hospitalAddress: "456 Oak Avenue, Uptown, New York" 
+                hospitalAddress: "456 Oak Avenue, Uptown, New York",
+                Location: "../images/map 2.png"
             },
             { 
                 cat: "Blood",
@@ -188,7 +190,8 @@
                 hospitalName: "Community Hospital", 
                 hospitalArea: "Midtown", 
                 hospitalGovernorate: "New York", 
-                hospitalAddress: "789 Elm Street, Midtown, New York" 
+                hospitalAddress: "789 Elm Street, Midtown, New York",
+                Location: "../images/map 3.jpeg" 
             }
                 // Add more blood donation requests here
             ]
@@ -396,6 +399,7 @@
                         <p>Hospital Area: ${request.hospitalArea}</p>
                         <p>Governorate: ${request.hospitalGovernorate}</p>
                         <p>Hospital Address: ${request.hospitalAddress}</p>
+                        <img src="${request.Location}" class = "location">
                     `;
                     break;
                 default:
