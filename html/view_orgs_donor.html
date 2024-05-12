@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Organizations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        li:hover {
+            background-color: #e0e0e0;
+        }
+
+        .filter-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .filter-input {
+            width: calc(100% - 40px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #organization-details {
+            margin-top: 20px;
+            display: none;
+        }
+
+        #organization-details p {
+            margin: 5px 0;
+        }
+
+        .toggle-btn {
+            margin-bottom: 20px;
+        }
+
+        .toggle-btn button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .toggle-btn button.active {
+            background-color: #0056b3;
+        }
+
+        .location {
+            display: block;
+            margin-top: 20px;
+            margin-bottom: 30px ;
+            margin-left: 100px;
+            width: 300px;
+        }
+
+        .delete-btn {
+            /* margin-left: 10px; */
+            padding: 5px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer
+        }
+
+        .delete-btn:hover {
+            background-color: #da190b;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>List of Organizations</h1>
+        <input type="text" id="filter-input" class="filter-input" placeholder="Enter filter criteria or search by organization name">
+        <button class="filter-btn" onclick="filterOrganizations()">Filter</button>
+    
+        <ul id="registered-list" style="display: block;">
+            <li onclick="viewOrganizationDetails(0,'registered')">Org 1 - Type A</li>
+            <li onclick="viewOrganizationDetails(1,'registered')">Org 2 - Type B</li>
+            <li onclick="viewOrganizationDetails(2,'registered')">Org 3 - Type C</li>
+        </ul>
+        <div id="organization-details">
+            <h2>Organization Details</h2>
+            <p><strong>Name:</strong> <span id="org-name"></span></p>
+            <p><strong>Type:</strong> <span id="org-type"></span></p>
+            <p><strong>Address:</strong> <span id="org-address"></span></p>
+            <p><strong>Contact:</strong> <span id="org-contact"></span></p>
+            <p><strong>First Name:</strong> <span id="org-firstname"></span></p>
+            <p><strong>Last Name:</strong> <span id="org-lastname"></span></p>
+            <p><strong>Gender:</strong> <span id="org-gender"></span></p>
+            <p><strong>Email:</strong> <span id="org-email"></span></p>
+            <p><strong>Area:</strong> <span id="org-area"></span></p>
+            <p><strong>Governorate:</strong> <span id="org-governorate"></span></p>
+            <p><strong>Location:</strong> <a href = "#" id="org-location" target="_blank">Location Link</a></p>
+        </div>
+    </div>
+
+    <script src = "../js/view_orgs_donor.js"></script>
+</body>
+
+</html>
