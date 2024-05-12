@@ -32,3 +32,7 @@ var loginBtn = document.getElementById("login-form");
           }
       }
   });
+
+  document.getElementById('dark-mode-toggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+  });
