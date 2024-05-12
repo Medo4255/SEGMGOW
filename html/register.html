@@ -152,7 +152,7 @@
             <input type="file" id="organization-document" name="organization-document">
           </div>
           <!-- Add other organization-specific fields here -->
-          <button type="submit" class="btn">Register as Organization</button>
+          <button id="submit" type="submit" class="btn">Register as Organization</button>
       </form>
 
         <!-- Donor Registration Form -->
@@ -210,8 +210,14 @@
             <input type="file" id="donor-document" name="donor-document">
           </div>
           <!-- Add other donor-specific fields here -->
-          <button type="submit" class="btn">Register as Donor</button>
+          <button id="submit" type="submit" class="btn">Register as Donor</button>
       </form>
+
+      <div id="success-message" class="hidden">
+        <p>Congratulations! You have successfully registered.</p>
+        <p>Redirecting in <span id="countdown">5</span> seconds...</p>
+    </div>
+
     </div>
 
     <script>
@@ -231,6 +237,67 @@
                 donorForm.classList.add('hidden');
             }
         });
+
+        const organizationForm = document.getElementById("organization-registration");
+        const donorForm = document.getElementById("donor-registration");
+        const successMessage = document.getElementById("success-message");
+        const countdownTimer = document.getElementById("countdown");
+
+        // Add event listener to the submit button of the organization registration form
+        organizationForm.addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Validate organization registration form fields
+            const orgName = document.getElementById("org-name").value;
+            const orgType = document.getElementById("org-type").value;
+            // Add more validations as needed for other fields
+
+            if (orgName && orgType) { // Check if required fields are filled
+                // Display success message
+                successMessage.classList.remove("hidden");
+
+                // Start countdown and redirect after 5 seconds
+                startCountdownAndRedirect();
+            }
+        });
+
+        // Add event listener to the submit button of the donor registration form
+        donorForm.addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Validate donor registration form fields
+            const firstName = document.getElementById("donor-first-name").value;
+            const lastName = document.getElementById("donor-last-name").value;
+            // Add more validations as needed for other fields
+
+            if (firstName && lastName) { // Check if required fields are filled
+                // Display success message
+                successMessage.classList.remove("hidden");
+
+                // Start countdown and redirect after 5 seconds
+                startCountdownAndRedirect();
+            }
+        });
+
+        // Function to start countdown and redirect after 5 seconds
+        function startCountdownAndRedirect() {
+            let countdown = 5; // Initial countdown value
+
+            // Display initial countdown value
+            countdownTimer.textContent = countdown;
+
+            // Start countdown timer
+            const countdownInterval = setInterval(function() {
+                countdown--; // Decrement countdown value
+                countdownTimer.textContent = countdown; // Update countdown display
+
+                if (countdown === 0) { // Check if countdown reaches 0
+                    clearInterval(countdownInterval); // Stop countdown timer
+                    // Redirect to the desired page after 5 seconds
+                    window.location.replace("login.html");
+                }
+            }, 1000); // Update countdown every second (1000 milliseconds)
+        }
     </script>
 </body>
 </html>
