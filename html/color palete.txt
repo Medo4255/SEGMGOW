@@ -1,0 +1,4 @@
+
+
+this color palette: (--light: #f8f9fa; --info: #17a2b8; --cyan: #17a2b8; --dark: #343a40;)
+

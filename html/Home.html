@@ -1,426 +1,551 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEGMGOW Charity</title>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden; /* Prevent horizontal scrollbar */
-        }
-
-        .sticky-header {
-  position: fixed;
-  top: 0;
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+  
+  
+  body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f7f7;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+.fade-effect {
+  position: relative;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  z-index: 100;
-  background-color: #333;
+  height: 150px; /* adjust the height as needed */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgb(75, 200, 207) 100%);
+  z-index: -1;
 }
 
-.header {
-  overflow: hidden;
-  padding: 10px 20px;
+.sticky-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff; /* Change this to #222 for dark mode */
+    padding: 2px 10px; /* Reduce top and bottom padding */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensure header stays above other content */
+    transition: background-color 0.3s ease;
+  }
+
+  .dark-mode .sticky-header  {
+    background-color: #222;
+    box-shadow: 0px 5px 10px rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
 }
 
-.header a {
-  float: left;
-  color: white;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px;
-  line-height: 25px;
-  border-radius: 4px;
-}
+  .website-name {
+    font-size: 20px; /* Adjust font size */
+    margin-right: auto; /* Pushes the nav links to the right */
+  }
 
-.header a.logo {
-  font-size: 25px;
-  font-weight: bold;
-  float: left;
-}
+  .header-content {
+    display: flex;
+    align-items: center;
+  }
 
-.header a:hover {
-  background-color: #555;
-  color: white;
-}
+  .header-links {
+    display: flex;
+    align-items: center;
+  }
 
-.header a.active {
-  background-color: #4CAF50;
-  color: white;
-}
+  .header-links a {
+    margin-right: 20px; /* Adjust spacing between links */
+    margin-left: 20px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #333333; /* Change this to #ddd for dark mode */
+    font-size: 18px; /* Adjust font size */
+    font-weight: 600; /* Adjust font weight */
+    padding: 10px 20px; /* Add padding */
+    border-radius: 5px; /* Add border radius */
+    transition: background-color 0.3s ease;
+  }
 
-.header-right {
-  float: right;
-}
+  .header-links a:hover {
+    background-color: #6a7c8e; /* Add background color on hover */
+    color: #ffffff; /* Change this to #fff for dark mode */
+  }
 
-@media screen and (max-width: 500px) {
-  .header a {
-    float: none;
+  .header-links .Home-link {
+    pointer-events: none; /* Make the link unclickable */
+    opacity: 0.5; /* Add low opacity */
+  }
+
+  .separator {
+    display: inline-block;
+    width: 1px;
+    height: 40px;
+    background-color: #ccc; /* Change this to #555 for dark mode */
+    margin: 0 20px;
+  }
+
+  .sticky-header .logo {
+    width: 50px; /* Adjust the size as needed */
+    border-radius: 30%;
+    border: 1px solid #6a7c8e;
+    margin: 10px; /* Adjust spacing */
+  }
+
+  .content {
+    margin-top: 30px; /* Adjust this value based on your header height */
+  }
+
+
+  .dark-mode .header-links a {
+    color: #ddd;
+  }
+
+  .dark-mode .separator {
+    background-color: #555;
+ }
+  
+  .login-page {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  max-width: 400px;
+  width: 100%;
+  
+  border: 1px solid #ddd;
+  margin-top: 50px;
+  
+}
+  
+
+  
+  h2 {
+    color: #333333;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    color: #666666;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: calc(100% - 22px);
+    padding: 12px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f5f3f3;
+    font-size: 16px;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-1 {
+    background-color: #6a7c8e;
+    color: #ffffff;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    width: 100%;
+  }
+  
+  .btn-1:hover {
+    background-color: #4b5a6d;
+    color: #ffffff;
+  }
+
+  
+  .error-message {
+    color: #ff0000;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  a {
+    color: #6a7c8e;
+    text-decoration: none;
     display: block;
-    text-align: left;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+    transition: color 0.3s ease;
   }
-  .header-right {
-    float: none;
+  
+  a:hover {
+    color: #4b5a6d;
   }
+
+  
+  .remember-me {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  }
+  
+  #remember-me {
+    margin-right: 10px;
+    appearance: none;
+    height: 16px;
+    width: 16px;
+    border: 1px solid #6a7c8e;
+    border-radius: 3px;
+    background-color: #ffffff;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+  }
+  
+  #remember-me:checked {
+    border-color: #4b5a6d;
+    background-color: #4b5a6d;
+  }
+  
+  #remember-me:focus {
+    box-shadow: 0 0 0 2px rgba(75, 90, 109, 0.2);
+  }
+
+  .logo {
+  display: block;
+  margin: 0 auto;
+  width: 150px;
+  border-radius: 20%;
+  border: 1px solid #6a7c8e;
+    
+}
+  .dark-mode-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+  
 }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            overflow: hidden;
-        }
+.dark-mode-toggle svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  background-color: #17a2b8;
+  border-radius: 20%;
+  box-shadow: 0 0 0 2px rgba(109, 160, 227, 0.566);
+  padding: 10px;
+}
 
-        h1 {
-            font-size: 36px;
-            margin: 0;
-            transition: all 0.3s ease;
-        }
+.dark-mode-toggle .moon {
+  display: none;
+}
 
-        h1:hover {
-            color: #ff7b54;
-        }
+.dark-mode .dark-mode-toggle .moon {
+  display: block;
+}
 
-        .charity {
-            color: #ff7b54;
-        }
+.dark-mode .dark-mode-toggle .sun {
+  display: none;
+}
 
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
 
-        nav ul li {
-            margin: 0 20px;
-            transition: all 0.3s ease;
-        }
+.dark-mode {
+  background-color: #343a40;
+  color: #fff;
+}
 
-        nav ul li a {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 18px;
-            transition: color 0.3s ease;
-        }
+.dark-mode .login-page {
+  background-color: #444;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
 
-        nav ul li a:hover {
-            color: #ff7b54;
-        }
 
-        .slider-container {
-            position: relative;
-            overflow: hidden;
-            max-width: 100%;
-            height: 400px; /* Set slider height */
-        }
+.dark-mode .dark-mode-toggle .moon {
+  fill: #fff;
+}
 
-        .slider-container img {
-            width: 100%;
-            height: auto; /* Maintain aspect ratio */
-            display: block;
-            transition: all 0.3s ease;
-            cursor: pointer; /* Enable cursor change on hover */
-        }
+.dark-mode h2 {
+  color: #fff;
+}
 
-        .slider-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: #ffffff;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
+.dark-mode label {
+  color: #fff;
+}
 
-        .slider-text span {
-            font-size: 32px;
-            font-weight: bold;
-            display: block;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-        }
+.dark-mode input[type="text"],
+.dark-mode input[type="password"] {
+  background-color: #333;
+  color: #fff;
+}
 
-        .slider-text p {
-            font-size: 18px;
-            transition: all 0.3s ease;
-        }
+.dark-mode .btn-1 {
+  background-color: #4b5a6d;
+  color: #fff;
+}
+.dark-mode .btn-1:hover {
+    background-color: #7c91ad;
+  }
 
-        .slider-container:hover .slider-text {
-            opacity: 1;
-        }
+.dark-mode .error-message {
+  color: #fff;
+}
 
-        .hero {
-            background-color: #ffffff;
-            padding: 40px 0;
-        }
+.dark-mode a {
+  color: #fff;
+}
 
-        .hero h2 {
-            font-size: 36px;
-            color: #333333;
-            margin-bottom: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
+.dark-mode .remember-me {
+  color: #fff;
+}
 
-        .hero p {
-            font-size: 18px;
-            color: #666666;
-            margin-bottom: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
+.dark-mode #remember-me {
+  border-color: #fff;
+}
 
-        .btn {
-            background-color: #6a7c8e;
-            color: #ffffff;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
+.dark-mode #remember-me:checked {
+  border-color: #fff;
+  background-color: #4b5a6d;
+}
 
-        .btn:hover {
-            background-color: #4b5a6d;
-        }
 
-        footer {
-            background-color: #6a7c8e;
-            color: #ffffff;
-            padding: 40px 0;
-        }
+.register-link .register-text {
+  text-decoration: underline;
+  color: #4b5a6d;
+  transition: color 0.5s ease;
+}
 
-        footer .container {
-            text-align: center;
-        }
+.register-link .register-text:hover {
+  color: #6a7c8e;
+}
+.dark-mode .register-link .register-text {
+  color: #bbb;
+  transition: color 0.5s ease;
+}
+.dark-mode .register-link .register-text:hover {
+  color: #f6f6f6;
+}
+.mission-section {
+    background-color: #17a2b8;
+    padding: 30px;
+    width: 80%;
+    margin: 30px auto;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+    margin-top: 100px;
+  }
 
-        .footer-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
+  .mission-text {
+    text-align: center;
+    margin-bottom: 20px;
+  }
 
-        .footer-left {
-            flex: 1;
-        }
+  .mission-section .separator {
+    display: none;
+  }
 
-        .extra-links ul {
-            padding: 0;
-            margin: 0;
-            list-style-type: none;
-        }
+  .dark-mode .mission-section {
+    background-color: #222;
+    color: #fff;
+  }
 
-        .extra-links ul li {
-            margin-bottom: 10px;
-        }
+  .mission-section .header-links a:hover {
+    background-color: #3c8fdb; /* Add background color on hover */
+    color: #fff; /* Change this to #000 for dark mode */
+  }
 
-        .extra-links ul li a {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 16px;
-            transition: color 0.3s ease;
-        }
+  .dark-mode .mission-section .separator {
+    display: inline-block;
+  }
+  .container-flex {
+  display: flex;
+  justify-content: center;
+}
 
-        .extra-links ul li a:hover {
-            color: #ff7b54;
-        }
+.container-title {
+  font-size: 24px;
+  text-align: center;
+}
 
-        .social-links {
-            margin-top: 20px;
-        }
+.donor-container,.recipient-container {
+  flex: 1;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-        .social-links a {
-            color: #ffffff;
-            font-size: 24px;
-            margin-right: 10px;
-            transition: color 0.3s ease;
-        }
+.donor-container {
+  background-color: #f7f7f7;
+}
 
-        .social-links a:hover {
-            color: #ff7b54;
-        }
+.recipient-container {
+  background-color: #f7f7f7;
+}
+.login-container {
+  flex: 1;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+}
 
-        .footer-right {
-            flex: 1;
-        }
+/* Style the login button */
+.login-button {
+  margin-bottom: 20px; /* Add some space between button and description */
+}
 
-        .signup-section h3 {
-            font-size: 24px;
-            color: #ffffff;
-            margin-bottom: 20px;
-        }
+.login-button button {
+  width: 200px;
+  height: 60px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  background-color: #17a2b8;
+  font-size: 40px;
+  
+}
 
-        .signup-section form {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+.login-button button:hover {
+  background-color: #3e8e41;
+}
 
-        .signup-section input[type="email"] {
-            width: 200px;
-            padding: 12px;
-            border: none;
-            border-radius: 20px;
-            margin-right: 10px;
-            transition: all 0.3s ease;
-        }
+.description {
+  text-align: center; /* Center the text */
+}
 
-        .signup-section input[type="email"]:focus {
-            box-shadow: 0 0 5px #ff7b54;
-        }
+  .footer {
+    margin-top: auto; /* Pushes the footer to the bottom */
+    background-color: #f8f9fa; /* Change this to #222 for dark mode */
+    justify-content: center; /* Align items horizontally at the center */
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
+  }
 
-        .signup-section button {
-            background-color: #ff7b54;
-            color: #ffffff;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
+  .dark-mode .footer {
+    background-color: #222;
+    color: #fff;
+  }
+  .social-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+ }
+ .social-icon {
+  padding-left: 24px; /* Adjust spacing between icons */
+  padding-right: 24px; /* Adjust spacing between icons */
+  padding-bottom: 10px; /* Adjust spacing between icons */
+  color: #17a2b8;
+  font-size: 35px;
+}
 
-        .signup-section button:hover {
-            background-color: #ff5a2b;
-        }
 
-        p.copyright {
-            font-size: 16px;
-            margin-top: 20px;
-        }
-    </style>
+
+  </style>
 </head>
-<body>
-    <header class="sticky-header">
-        <div class="header">
-          <a href="#default" class="logo">SEGMGOW Charity</a>
-          <div class="header-right">
-            <a class="active" href="#home">Home</a>
-            <a href="#contact">Contact</a>
-            <a href="#about">About</a>
-          </div>
-        </div>
-      </header>
 
-    <div class="slider-container">
-        <!-- Add your slider images here -->
-        <img src="slider-image1.jpg" alt="Slider Image 1">
-        <img src="slider-image2.jpg" alt="Slider Image 2">
-        <img src="slider-image3.jpg" alt="Slider Image 3">
-        <div class="slider-text">
-            <span>Welcome to SEGMGOW Charity</span>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-    </div>
-
-    <section class="hero">
-        <div class="container">
-            <h2>Welcome to SEGMGOW Charity</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <button class="btn" id="myButton">Learn More</button>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-left">
-                    <div class="extra-links">
-                        <ul>
-                            <li><a href="#">Bugs and Fixes</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms of Service</a></li>
-                            <li><a href="#">FAQs</a></li>
-                        </ul>
-                    </div>
-                    <div class="social-links">
-                        <a href="#" class="fa fa-facebook"></a>
-                        <a href="#" class="fa fa-twitter"></a>
-                        <a href="#" class="fa fa-instagram"></a>
-                    </div>
-                </div>
-                <div class="footer-right">
-                    <div class="signup-section">
-                        <h3>Join Our Community</h3>
-                        <form action="#">
-                            <input type="email" placeholder="Enter your email">
-                            <button type="submit">Sign Up</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <p class="copyright">&copy; 2024 SEGMGOW Charity. All rights reserved.</p>
-        </div>
-    </footer>
-    
-    <script>
-        // JavaScript for swipe gesture
-        let sliderImages = document.querySelectorAll('.slider-container img');
-        let sliderText = document.querySelector('.slider-text');
-        let currentImageIndex = 0;
-
-        // Swipe gesture handling
-        let touchStartX = 0;
-        let touchEndX = 0;
+<header class="sticky-header">
+  <div class="header-content">
+    <img src="../images/kratos-logo4.png" alt="Your Company Logo" class="logo">
+    <h1 class="website-name">SEGMGOW Charity</h1>
+    <nav class="header-links">
+      <span class="separator"></span>
+      <a href="#" class="Home-link">Home</a>
+      <span class="separator"></span>
+      <a href="about.html">About</a>
+      <span class="separator"></span>
+      <a href="#">Contact</a>
+      <span class="separator"></span>    
+      <a  href= "#" style="margin-left: -10px;" href="#">My Account<i  style="margin-left: 10px;" class="fa fa-cog" aria-hidden="true"></i></a>
         
-        sliderImages.forEach(image => {
-            image.addEventListener('touchstart', handleTouchStart);
-            image.addEventListener('touchend', handleTouchEnd);
-        });
+    </nav>
+  </div>
+</header>
 
-        function handleTouchStart(event) {
-            touchStartX = event.changedTouches[0].clientX;
-        }
+<body>
+    <section class="mission-section">
+        <h2 class="mission-title">Our Mission</h2>
+        <p class="mission-text">Promoting impactful relationships between donors and recipients to share resources, expertise, and assistance, nurturing a culture of giving, understanding, and teamwork to meet various community needs.</p>
+      </section>
+      <div class="container-flex">
+        <div class="donor-container">
+          <h3 class="container-title">Donor</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+        </div>
+        <div class="recipient-container">
+          <h3 class="container-title">Recepient</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+        </div>
+      </div>
+      <div class="login-page">
+        <img src="../images/kratos-logo4.png" alt="Your Company Logo" class="logo">
+        <h2>Join The Community</h2>
+          <a id="login-btn" href="register.html" class="btn-1">Sign Up now</a>
+          <a href="login.html" class="register-link">Already have an account? <span class="register-text">Login Here</span></a>
+      </div>
+      <div class="fade-effect"></div>
+    
+      <footer class="footer">
+        <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fa fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fa fa-instagram"></i></a>
+            
+          </div>
+        <p style="font-size: 15px;">SEGMGOW Charity &copy; 2024</p>
+      </footer>
+  <button id="dark-mode-toggle" class="dark-mode-toggle">
+    <svg class="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+    <svg class="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </button>
 
-        function handleTouchEnd(event) {
-            touchEndX = event.changedTouches[0].clientX;
-            handleGesture();
-        }
-
-        function handleGesture() {
-            if (touchEndX < touchStartX) {
-                // Swipe left
-                showNextImage();
-            } else if (touchEndX > touchStartX) {
-                // Swipe right
-                showPreviousImage();
-            }
-        }
-
-        function showNextImage() {
-            sliderImages[currentImageIndex].style.opacity = 0;
-            sliderText.style.opacity = 0;
-
-            currentImageIndex = (currentImageIndex + 1) % sliderImages.length;
-
-            setTimeout(() => {
-                sliderImages[currentImageIndex].style.opacity = 1;
-                sliderText.style.opacity = 1;
-            }, 300);
-        }
-
-        function showPreviousImage() {
-            sliderImages[currentImageIndex].style.opacity = 0;
-            sliderText.style.opacity = 0;
-
-            currentImageIndex = (currentImageIndex - 1 + sliderImages.length) % sliderImages.length;
-
-            setTimeout(() => {
-                sliderImages[currentImageIndex].style.opacity = 1;
-                sliderText.style.opacity = 1;
-            }, 300);
-        }
-    </script>
+<script >
+    document.getElementById('dark-mode-toggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+  });
+</script>
 </body>
+
 </html>
