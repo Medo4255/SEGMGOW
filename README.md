@@ -2,4 +2,4 @@ Introducing a prototype charity website built with HTML, CSS, and JavaScript. It
 
 Launch the webpage from the Home.html file found in the html folder.
 
-Keep in mind that some pages may have incomplete featurs.
+Keep in mind that some pages may have incomplete features.
